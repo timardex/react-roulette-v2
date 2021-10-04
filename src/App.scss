@@ -1,0 +1,17 @@
+@import './assets/styles/helpers.scss';
+@import './assets/styles/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#roulette-game {
+  width: 100%;
+  max-width: 992px;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+}
