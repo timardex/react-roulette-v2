@@ -78,6 +78,7 @@
             width: $wheelSize;
             height: 280px;
             position: relative;
+            transform: scale(.9);
 
             @for $i from $from through $to {
                 .number:nth-child(#{$i}) {
@@ -143,16 +144,16 @@
 
     .r-ball {
         position: absolute;
-        width: 125px;
-        height: 135px;
+        width: 203px;
+        height: 203px;
 
         &:before {
             content: '';
             position: absolute;
             top: 0; left: 0;
             background: $color1;
-            width: 5px;
-            height: 5px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
         }
 
@@ -180,11 +181,11 @@
         align-items: center;
 
         .ball-track {
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 96%;
             background: transparent;
             border-radius: 50%;
-            border: 5px solid $tableColor2;
+            border: 7px solid $tableColor2;
         }
     }
 }

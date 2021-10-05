@@ -1,10 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { getNumbersByProperties } from '../../../helpers';
+
 import './style.scss';
 
 const Numbers = (props) => {
-  const { numbers } = props;
+  const { property, value } = props;
+  const numbersList = useSelector(state => state.numbersList) || [];
+  const numbers = getNumbersByProperties(numbersList, property, value);
+
   return (
-    <div className="columns">
+    <div className={`columns ${value === 'green' ? 'number-zero' : ''}`}>
       {numbers.map((value, index) => {
         return (
           <div className={`form-check form-check-inline`} key={index}>

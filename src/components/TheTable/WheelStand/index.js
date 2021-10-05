@@ -1,15 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { getNumbersByProperties } from '../../../helpers';
+
 import './style.scss';
 
-const WheelStand = (props) => {
-  const numbers = props.numbers.sort((a, b) => a.onWheel - b.onWheel);
+const WheelStand = () => {
+  const numbersList = useSelector(state => state.numbersList) || [];
+  const rotateWheel = useSelector(state => state.rotateWheel) || '';
+  const rotateBall = useSelector(state => state.rotateBall) || '';
+
+  const numbers = numbersList.sort((a, b) => a.onWheel - b.onWheel);
   
   return (
     <div id="wheel-stand">
       <div className="wheel-box">
           <div className="ball-track"></div>
       </div>
-      <div className="r-wheel">
+      <div className={`r-wheel ${rotateWheel}`}>
           <ul>
               {numbers.map((value, index) => {
                   return <li className={`number number-${value.number}`} key={index} style={{borderTopColor: value.properties.color}}>
@@ -21,7 +29,7 @@ const WheelStand = (props) => {
               <div className="wheel-inner-center"></div>
           </div>
       </div>
-      <div className="r-ball"></div>
+      <div className={`r-ball ${rotateBall}`}></div>
     </div>
   );
 };
