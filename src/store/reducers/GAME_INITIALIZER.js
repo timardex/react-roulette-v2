@@ -1,10 +1,9 @@
-import { numbersList, wheelNumbers } from '../helpers/numbers';
+import numbersList from '../helpers/numbers';
 
 const GAME_INITIALIZER = (state) => {
   return {
     ...state,
     numbersList,
-    wheelNumbers
   };
 };
 

@@ -5,6 +5,7 @@ const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
 const orphelins = [1, 20, 14, 31, 9, 6, 34, 17];
 const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
 const jeu0s = [12, 35, 3, 26, 0, 32, 15];
+const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
 
 /* raceTrack */
 const raceTrack = (item) => {
@@ -66,15 +67,16 @@ const column = (item) => {
   return 'neutral';
 };
 
-export const numbersList = allNumbers.map((item, index) => {
+const numbersList = allNumbers.map((item, index) => {
   return {
     id: `${item}`,
     name: `${item}`,
     checked: false,
     number: item,
+    onWheel: wheelNumbers.findIndex(wheel => wheel === item),
     properties: {
       evenOdd: item > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral',
-      highLow: item > 0 ? item >= 1 && item <= 18 ? 'low' : 'high' : 'neutral',
+      highLow: item > 0 ? item >= 1 && item <= 18 ? '1 to 18' : '19 to 36' : 'neutral',
       raceTrack: raceTrack(item),
       color: color(item, index),
       dozen: dozen(item),
@@ -83,4 +85,4 @@ export const numbersList = allNumbers.map((item, index) => {
   };
 });
 
-export const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,1,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
+export default numbersList;
