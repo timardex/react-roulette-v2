@@ -17,7 +17,7 @@ const App = () => {
     dispatch(gameInitializer());
   });
 
-  console.log(getNumbersByProperties(numbersList, 'evenOdd', 'even'));
+  console.log(getNumbersByProperties(numbersList, 'color', 'green'));
 
   return (
     <div id="roulette-game">
