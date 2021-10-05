@@ -3,7 +3,7 @@ import './style.scss';
 
 const WheelStand = (props) => {
   const numbers = props.numbers.sort((a, b) => a.onWheel - b.onWheel);
-  console.log(numbers)
+  
   return (
     <div id="wheel-stand">
       <div className="wheel-box">
