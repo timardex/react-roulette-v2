@@ -1,14 +1,13 @@
 const allNumbers = [...Array(37).keys()];
-
 const everyNth = nth => allNumbers.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);
+
+const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
+const orphelins = [1, 20, 14, 31, 9, 6, 34, 17];
+const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
+const jeu0s = [12, 35, 3, 26, 0, 32, 15];
 
 /* raceTrack */
 const raceTrack = (item) => {
-  const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
-  const orphelins = [1, 20, 14, 31, 9, 6, 34, 17];
-  const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
-  const jeu0s = [12, 35, 3, 26, 0, 32, 15];
-
   if(cylinders.includes(item)) {
     return ['cylinder'];
   }
@@ -67,26 +66,21 @@ const column = (item) => {
   return 'neutral';
 };
 
-const numbersList = allNumbers.map((item, index) => {
-  const evenOdd = item > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral';
-  const highLow = item > 0 ? item >= 1 && item <= 18 ? 'low' : 'high' : 'neutral';
-
-  const properties = {
-    evenOdd,
-    highLow,
-    raceTrack: raceTrack(item),
-    color: color(item, index),
-    dozen: dozen(item),
-    column: column(item),
-  };
-
+export const numbersList = allNumbers.map((item, index) => {
   return {
     id: `${item}`,
     name: `${item}`,
     checked: false,
     number: item,
-    properties,
+    properties: {
+      evenOdd: item > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral',
+      highLow: item > 0 ? item >= 1 && item <= 18 ? 'low' : 'high' : 'neutral',
+      raceTrack: raceTrack(item),
+      color: color(item, index),
+      dozen: dozen(item),
+      column: column(item),
+    },
   };
 });
 
-export default numbersList;
+export const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,1,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];

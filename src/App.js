@@ -1,15 +1,24 @@
-import React from 'react';
-//import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './App.scss'
 
 import RotateDevice from './components/RotateDevice';
 import GameHeader from './components/GameHeader';
 
-import numbersList from './store/helpers/numbers';
+import { gameInitializer } from './store/actions';
+import { getNumbersByProperties } from './helpers';
 
 const App = () => {
-  console.log(numbersList);
+  const dispatch = useDispatch();
+  const numbersList = useSelector(state => state.numbersList) || [];
+
+  useEffect(() => {
+    dispatch(gameInitializer());
+  });
+
+  console.log(getNumbersByProperties(numbersList, 'evenOdd', 'even'));
+
   return (
     <div id="roulette-game">
       <RotateDevice />
