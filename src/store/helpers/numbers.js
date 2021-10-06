@@ -53,15 +53,15 @@ const dozen = ((item) => {
 /* Column */
 const column = (item) => {
   if(everyNth(2).includes(item)) {
-    return '1st column';
+    return '1st';
   }
 
   if(everyNth(1).includes(item)) {
-    return '2nd column';
+    return '2nd';
   }
 
   if(everyNth(3).includes(item)) {
-    return '3rd column';
+    return '3rd';
   }
 
   return 'neutral';

@@ -5,7 +5,7 @@ import './style.scss';
 import { getNumbersByProperties } from '../../../helpers';
 
 const OutsideNumbers = (props) => {
-  const { property, value } = props;
+  const { className, property, value } = props;
   const numbersList = useSelector(state => state.numbersList) || [];
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
   const data = [
@@ -13,12 +13,12 @@ const OutsideNumbers = (props) => {
       id: value.replace(/\s+/g, '-').toLowerCase(),
       name: value,
       checked: false,
-      numbers,
+      numbers: numbers.sort((a, b) => a - b),
     }
   ];
 
   return (
-    <div className="outside-numbers">
+    <div className={`${className || ''} other-bets`}>
       {data.map((value, index) => {
         return (
           <div className="form" key={index} >

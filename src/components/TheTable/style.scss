@@ -62,10 +62,10 @@
     }
   }
 
-  .one-2-one {
-    width: 442.5px;
+  .outside-numbers {
+    width: 452px;
     position: relative;
-    left: 38px;
+    left: 32px;
     border: 1px solid $color1a;
     margin: 2px 0;
     display: flex;
@@ -75,6 +75,30 @@
       width: 334px;
       font-size: .8rem;
       left: 29px;
+    }
+  }
+
+  .column-line {
+    position: absolute !important;
+    right: -44px;
+    top: 0;
+    font-size: 1rem;
+    width: 36px;
+    height: 100%;
+
+    .other-bets {
+      color: $color1;
+      transform: rotate(-90deg);
+      height: 36px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color1a;
+
+      label {
+        border: none !important;
+      }
     }
   }
 
@@ -148,21 +172,6 @@
       background: $color2;
       border-radius: 50%;
     }
-  }
-
-  label[for="reds"] span {
-    color: $color4;
-  }
-  label[for="blacks"] span {
-    color: $color5;
-  }
-
-  label[for="1st"] span,
-  label[for="2nd"] span,
-  label[for="3rd"] span {
-    color: $color1;
-    transform: rotate(-90deg);
-    font-size: 1rem;
   }
 
   .winner-number {

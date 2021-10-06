@@ -1,0 +1,75 @@
+export const one2one = [
+  {
+    property: 'highLow',
+    value: '1 to 18',
+  },
+  {
+    property: 'evenOdd',
+    value: 'even',
+  },
+  {
+    property: 'color',
+    value: 'red',
+  },
+  {
+    property: 'color',
+    value: 'black',
+  },
+  {
+    property: 'evenOdd',
+    value: 'odd',
+  },
+  {
+    property: 'highLow',
+    value: '19 to 36',
+  },
+];
+
+export const dozen = [
+  {
+    property: 'dozen',
+    value: '1st dozen',
+  },
+  {
+    property: 'dozen',
+    value: '2nd dozen',
+  },
+  {
+    property: 'dozen',
+    value: '3rd dozen',
+  },
+];
+
+export const column = [
+  {
+    property: 'column',
+    value: '3rd',
+  },
+  {
+    property: 'column',
+    value: '2nd',
+  },
+  {
+    property: 'column',
+    value: '1st',
+  },
+];
+
+export const raceTrack = [
+  {
+    property: 'raceTrack',
+    value: 'cylinder',
+  },
+  {
+    property: 'raceTrack',
+    value: 'orphelin',
+  },
+  {
+    property: 'raceTrack',
+    value: 'voison',
+  },
+  {
+    property: 'raceTrack',
+    value: 'jeu0',
+  },
+];
