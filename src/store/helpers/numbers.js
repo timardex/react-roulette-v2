@@ -67,20 +67,20 @@ const column = (item) => {
   return 'neutral';
 };
 
-const numbersList = allNumbers.map((item, index) => {
+const numbersList = allNumbers.map((number, index) => {
   return {
-    id: `${item}`,
-    name: `${item}`,
+    id: `${number}`,
+    name: `${number}`,
+    number,
     checked: false,
-    number: item,
-    onWheel: wheelNumbers.findIndex(wheel => wheel === item),
     properties: {
-      evenOdd: item > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral',
-      highLow: item > 0 ? item >= 1 && item <= 18 ? '1 to 18' : '19 to 36' : 'neutral',
-      raceTrack: raceTrack(item),
-      color: color(item, index),
-      dozen: dozen(item),
-      column: column(item),
+      evenOdd: number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral',
+      highLow: number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral',
+      color: color(number, index),
+      raceTrack: raceTrack(number),
+      dozen: dozen(number),
+      column: column(number),
+      onWheel: wheelNumbers.findIndex(wheel => wheel === number),
     },
   };
 });

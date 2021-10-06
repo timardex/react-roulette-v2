@@ -8,15 +8,15 @@ import './style.scss';
 const Numbers = (props) => {
   const { property, value } = props;
   const numbersList = useSelector(state => state.numbersList) || [];
-  const numbers = getNumbersByProperties(numbersList, property, value);
+  const data = getNumbersByProperties(numbersList, property, value).sort((a, b) => a.id - b.id);
 
   return (
     <div className={`columns ${value === 'green' ? 'number-zero' : ''}`}>
-      {numbers.map((value, index) => {
+      {data.map((value, index) => {
         return (
-          <div className={`form-check form-check-inline`} key={index}>
-            <label className={`form-check-label number-${value.name}`} htmlFor={value.id} title={value.numbers}>
-              <input className="form-check-input" type="checkbox" id={value.id} value={value.id} />
+          <div className={`form`} key={index}>
+            <label className={`form-label number-${value.name}`} htmlFor={value.id} title={value.numbers}>
+              <input className="form-input" type="checkbox" id={value.id} value={value.id} />
               <span className="number-name" style={{color: value.properties.color}}>{value.name}</span>
               {value.checked && <span className="chip"></span>}
               <span className="dolly"></span>

@@ -1,0 +1,36 @@
+@import '../../../assets/styles/variables';
+
+/*Outside Numbers */
+.outside-numbers {
+  .form {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+
+    &:hover {
+      background: $color2a;
+    }
+
+    label {
+      cursor: pointer;
+      width: 100%;
+      border-right: 1px solid $color1a;
+      color: $color1;
+      font-weight: 700;
+    }
+
+    &:last-of-type label {
+      border: none;
+    }
+
+    input {
+      position: absolute !important;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
