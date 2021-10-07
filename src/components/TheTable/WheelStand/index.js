@@ -13,20 +13,23 @@ const WheelStand = () => {
   return (
     <div id="wheel-stand">
       <div className="wheel-box">
-          <div className="ball-track"></div>
+        <div className="ball-track"></div>
       </div>
+      
       <div className={`r-wheel ${rotateWheel}`}>
-          <ul>
-              {data.map((value, index) => {
-                  return <li className={`number number-${value.number}`} key={index} style={{borderTopColor: value.properties.color}}>
-                    <span className="pit">{value.number}</span>
-                  </li>
-              })}
-          </ul>
-          <div className="wheel-inner">
-              <div className="wheel-inner-center"></div>
-          </div>
+        <ul>
+          {data.map((value, index) => {
+            return <li className={`number number-${value.number}`} key={index} style={{borderTopColor: value.properties.color}}>
+              <span className="pit">{value.number}</span>
+            </li>
+          })}
+        </ul>
+
+        <div className="wheel-inner">
+          <div className="wheel-inner-center"></div>
+        </div>
       </div>
+
       <div className={`r-ball ${rotateBall}`}></div>
     </div>
   );

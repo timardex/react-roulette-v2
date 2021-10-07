@@ -6,8 +6,8 @@ const GAME_INITIALIZER = (state) => {
     numbersList,
     ballEffect: new Audio(require('../../assets/sounds/ball-effect.mp3')),
     chipEffect: new Audio(require('../../assets/sounds/chip-effect.mp3')),
-    rotateWheel: 'rotate-left',
-    rotateBall: 'rotate-right d-block',
+    rotateWheel: '',
+    rotateBall: '',
   };
 };
 

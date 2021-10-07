@@ -7,6 +7,23 @@ const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
 const jeu0s = [12, 35, 3, 26, 0, 32, 15];
 const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
 
+const streetChunk = () => {
+  const result = allNumbers.reduce((memo, value, index) => {
+    if (index % 3 === 1 && index !== 0) memo.push([])
+    memo[memo.length - 1].push(value)
+    return memo
+  }, [[]]).slice(1); //remove #0 with slice
+  
+  return result.map((element, index) => {
+    const street = `street ${index}`;
+    return {element, street};
+  });
+};
+
+const xxx = streetChunk();
+console.log(xxx)
+
+
 /* raceTrack */
 const raceTrack = (item) => {
   if(cylinders.includes(item)) {
@@ -68,21 +85,30 @@ const column = (item) => {
 };
 
 const numbersList = allNumbers.map((number, index) => {
+  const evenOdd = number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral';
+  const highLow = number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral';
+  const street = streetChunk().map((street) => {
+    return street.element.includes(number) ? street.street : null
+  }).filter(el => el !== null);
+
   return {
     id: `${number}`,
     name: `${number}`,
     number,
     checked: false,
     properties: {
-      evenOdd: number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral',
-      highLow: number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral',
+      evenOdd,
+      highLow,
       color: color(number, index),
       raceTrack: raceTrack(number),
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
+      street
     },
   };
 });
+
+console.log(numbersList)
 
 export default numbersList;

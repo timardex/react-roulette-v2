@@ -16,6 +16,9 @@ $from: 1;
 $to: 37;
 $rotate:(360/$to)+0deg;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+$font1: 'Roboto', sans-serif;
+
 /* wheel */
 @keyframes wheelRotateRight {
     0% {
