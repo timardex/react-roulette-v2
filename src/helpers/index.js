@@ -6,3 +6,4 @@ export const getNumbersByProperties = (array, property, value) => {
   });
 };
 
+export const everyNth = (array, nth) => array.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);

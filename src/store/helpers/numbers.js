@@ -1,34 +1,68 @@
+import { everyNth } from '../../helpers';
+
 const allNumbers = [...Array(37).keys()];
 const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
 const orphelins = [1, 20, 14, 31, 9, 6, 34, 17];
 const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
 const jeu0s = [12, 35, 3, 26, 0, 32, 15];
 const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
+const columnLine1 = [...everyNth(allNumbers, 2)];
+const columnLine2 = [...everyNth(allNumbers, 1)];
+const columnLine3 = [...everyNth(allNumbers, 3)];
 
-const everyNth = (array, nth) => array.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);
+const splitChunk = () => {
+  const colum3 = [...columnLine3];
+  const colum2 = [...columnLine2];
+  const colum1 = [...columnLine1];
+
+  const splitVertical = () => {
+    const array = colum1.map((item, index) => {
+      return [item, colum2[index], colum3[index]];
+    });
+    return array;
+  };
+
+  console.log(splitVertical())
+
+  /* const splitHorizontal = (array) => {
+    return array.unshift(0).map((item, index) => {
+      const result = array.slice(0, index + 2);
+      return result.slice(-2);
+    });
+  }; */
+  /* const splitCol3 = splitHorizontal(colum3);
+  const splitCol2 = splitHorizontal(colum2);
+  const splitCol1 = splitHorizontal(colum1); */
+};
+
+splitChunk()
 
 const sixLineChunk = () => {
-  const numbers = allNumbers.map(item => item);
+  const numbers = [...allNumbers];
   const slicedNumbers = numbers.map((item) => {
     return numbers.slice(item, item + 6);
   });
   const sixLineZero = slicedNumbers.find((item) => item.includes(0)).slice(0, 4);
   const sixLineOther = slicedNumbers.filter((item, index) => !item.includes(0) && index < 32);
+  
   const result = [sixLineZero, ...everyNth(sixLineOther, 3)];
-
+  
   return result.map((numbers, index) => {
     const name = `sixline ${index}`;
     return { numbers, name };
   });
 };
-
 /* Street */
 const streetChunk = () => {
-  const result = allNumbers.reduce((memo, value, index) => {
+  /* const result = allNumbers.reduce((memo, value, index) => {
     if (index % 3 === 1 && index !== 0) memo.push([])
     memo[memo.length - 1].push(value)
     return memo
-  }, [[]]);
+  }, [[]]); */
+
+  const result = columnLine1.map((item, index) => {
+    return [item, columnLine2[index], columnLine3[index]];
+  });
   
   return result.map((numbers, index) => {
     const name = `street ${index}`;
@@ -81,16 +115,15 @@ const dozen = ((item) => {
 
 /* Column */
 const column = (item) => {
-
-  if(everyNth(allNumbers, 2).includes(item)) {
+  if(columnLine1.includes(item)) {
     return '1st';
   }
 
-  if(everyNth(allNumbers, 1).includes(item)) {
+  if(columnLine2.includes(item)) {
     return '2nd';
   }
 
-  if(everyNth(allNumbers, 3).includes(item)) {
+  if(columnLine3.includes(item)) {
     return '3rd';
   }
 
@@ -121,5 +154,5 @@ const numbersList = allNumbers.map((number, index) => {
     },
   };
 });
-console.log(numbersList)
+
 export default numbersList;
