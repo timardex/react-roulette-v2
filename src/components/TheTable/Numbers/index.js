@@ -8,7 +8,7 @@ import './style.scss';
 const Numbers = (props) => {
   const { property, value } = props;
   const numbersList = useSelector(state => state.numbersList) || [];
-  const data = getNumbersByProperties(numbersList, property, value).sort((a, b) => a.id - b.id);
+  const data = getNumbersByProperties(numbersList, property, value);
 
   return (
     <div className={`columns ${value === 'green' ? 'number-zero' : ''}`}>

@@ -7,6 +7,7 @@ const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
 const jeu0s = [12, 35, 3, 26, 0, 32, 15];
 const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
 
+/* Street */
 const streetChunk = () => {
   const result = allNumbers.reduce((memo, value, index) => {
     if (index % 3 === 1 && index !== 0) memo.push([])
@@ -14,15 +15,11 @@ const streetChunk = () => {
     return memo
   }, [[]]).slice(1); //remove #0 with slice
   
-  return result.map((element, index) => {
+  return result.map((numbers, index) => {
     const street = `street ${index}`;
-    return {element, street};
+    return {numbers, street};
   });
 };
-
-const xxx = streetChunk();
-console.log(xxx)
-
 
 /* raceTrack */
 const raceTrack = (item) => {
@@ -87,9 +84,7 @@ const column = (item) => {
 const numbersList = allNumbers.map((number, index) => {
   const evenOdd = number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral';
   const highLow = number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral';
-  const street = streetChunk().map((street) => {
-    return street.element.includes(number) ? street.street : null
-  }).filter(el => el !== null);
+  const street = streetChunk().find((street) => street.numbers.includes(number)) || '';
 
   return {
     id: `${number}`,
@@ -104,7 +99,7 @@ const numbersList = allNumbers.map((number, index) => {
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
-      street
+      street,
     },
   };
 });
