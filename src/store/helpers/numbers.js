@@ -1,11 +1,26 @@
 const allNumbers = [...Array(37).keys()];
-const everyNth = nth => allNumbers.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);
-
 const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
 const orphelins = [1, 20, 14, 31, 9, 6, 34, 17];
 const voisons = [22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25];
 const jeu0s = [12, 35, 3, 26, 0, 32, 15];
 const wheelNumbers = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
+
+const everyNth = (array, nth) => array.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);
+
+const sixLineChunk = () => {
+  const numbers = allNumbers.map(item => item);
+  const slicedNumbers = numbers.map((item) => {
+    return numbers.slice(item, item + 6);
+  });
+  const sixLineZero = slicedNumbers.find((item) => item.includes(0)).slice(0, 4);
+  const sixLineOther = slicedNumbers.filter((item, index) => !item.includes(0) && index < 32);
+  const result = [sixLineZero, ...everyNth(sixLineOther, 3)];
+
+  return result.map((numbers, index) => {
+    const name = `sixline ${index}`;
+    return { numbers, name };
+  });
+};
 
 /* Street */
 const streetChunk = () => {
@@ -17,7 +32,7 @@ const streetChunk = () => {
   
   return result.map((numbers, index) => {
     const name = `street ${index}`;
-    return {numbers, name};
+    return { numbers, name };
   });
 };
 
@@ -66,15 +81,16 @@ const dozen = ((item) => {
 
 /* Column */
 const column = (item) => {
-  if(everyNth(2).includes(item)) {
+
+  if(everyNth(allNumbers, 2).includes(item)) {
     return '1st';
   }
 
-  if(everyNth(1).includes(item)) {
+  if(everyNth(allNumbers, 1).includes(item)) {
     return '2nd';
   }
 
-  if(everyNth(3).includes(item)) {
+  if(everyNth(allNumbers, 3).includes(item)) {
     return '3rd';
   }
 
@@ -85,6 +101,7 @@ const numbersList = allNumbers.map((number, index) => {
   const evenOdd = number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral';
   const highLow = number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral';
   const street = number !== 0 ? streetChunk().find((street) => street.numbers.includes(number)) : '';
+  const sixline = sixLineChunk().filter((line) => line.numbers.includes(number));
 
   return {
     id: `${number}`,
@@ -100,8 +117,9 @@ const numbersList = allNumbers.map((number, index) => {
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
       street: street.name,
+      sixline: sixline.map(item => item.name),
     },
   };
 });
-
+console.log(numbersList)
 export default numbersList;
