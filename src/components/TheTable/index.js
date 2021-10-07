@@ -1,12 +1,13 @@
 import React from 'react';
 
 import './style.scss';
-import { one2one, dozen, column, raceTrack, street } from './data';
+import { one2one, dozen, column, raceTrack, street, sixLine } from './data';
 
 import WheelStand from './WheelStand';
 import Numbers from './Numbers';
 import OutsideNumbers from './OutsideNumbers';
 import Street from './Street';
+import SixLine from './SixLine';
 
 const TheTable = () => {
   return (
@@ -52,6 +53,15 @@ const TheTable = () => {
             <div id="street-bets">
               {street.map((item) => {
                 return <Street
+                  key={item.value}
+                  property={item.property}
+                  value={item.value}/>
+              })}
+            </div>
+
+            <div id="sixline-bets">
+              {sixLine.map((item) => {
+                return <SixLine
                   key={item.value}
                   property={item.property}
                   value={item.value}/>

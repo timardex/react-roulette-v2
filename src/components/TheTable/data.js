@@ -83,3 +83,12 @@ const streetSetup = numbersList.map((item) => {
 }).filter(item => item.value !== '');
 
 export const street = Array.from(new Set(streetSetup.map(JSON.stringify))).map(JSON.parse);
+
+const sixLineSetup = numbersList.map((item) => {
+  const property = 'sixline';
+  const value = item.properties.sixline[item.properties.sixline.length - 1];
+  return { property, value };
+});
+
+export const sixLine = Array.from(new Set(sixLineSetup.map(JSON.stringify))).map(JSON.parse);
+
