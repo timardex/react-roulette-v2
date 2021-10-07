@@ -1,3 +1,5 @@
+import numbersList from '../../store/helpers/numbers';
+
 export const one2one = [
   {
     property: 'highLow',
@@ -73,3 +75,11 @@ export const raceTrack = [
     value: 'jeu0',
   },
 ];
+
+const streetSetup = numbersList.map((item) => {
+  const property = 'street';
+  const value = item.properties.street || '';
+  return { property, value };
+}).filter(item => item.value !== '');
+
+export const street = Array.from(new Set(streetSetup.map(JSON.stringify))).map(JSON.parse);

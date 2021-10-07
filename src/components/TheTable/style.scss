@@ -62,6 +62,14 @@
     }
   }
 
+  #street-bets {
+    position: absolute;
+    top: -8px;
+    display: flex;
+    justify-content: space-around;
+    width: 455px;
+  }
+
   .outside-numbers {
     width: 452px;
     position: relative;

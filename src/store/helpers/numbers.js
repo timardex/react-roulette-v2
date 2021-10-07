@@ -13,11 +13,11 @@ const streetChunk = () => {
     if (index % 3 === 1 && index !== 0) memo.push([])
     memo[memo.length - 1].push(value)
     return memo
-  }, [[]]).slice(1); //remove #0 with slice
+  }, [[]]);
   
   return result.map((numbers, index) => {
-    const street = `street ${index}`;
-    return {numbers, street};
+    const name = `street ${index}`;
+    return {numbers, name};
   });
 };
 
@@ -84,7 +84,7 @@ const column = (item) => {
 const numbersList = allNumbers.map((number, index) => {
   const evenOdd = number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral';
   const highLow = number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral';
-  const street = streetChunk().find((street) => street.numbers.includes(number)) || '';
+  const street = number !== 0 ? streetChunk().find((street) => street.numbers.includes(number)) : '';
 
   return {
     id: `${number}`,
@@ -99,11 +99,9 @@ const numbersList = allNumbers.map((number, index) => {
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
-      street,
+      street: street.name,
     },
   };
 });
-
-console.log(numbersList)
 
 export default numbersList;

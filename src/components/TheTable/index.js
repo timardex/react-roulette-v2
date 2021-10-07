@@ -1,11 +1,12 @@
 import React from 'react';
 
 import './style.scss';
-import { one2one, dozen, column, raceTrack } from './data';
+import { one2one, dozen, column, raceTrack, street } from './data';
 
 import WheelStand from './WheelStand';
 import Numbers from './Numbers';
 import OutsideNumbers from './OutsideNumbers';
+import Street from './Street';
 
 const TheTable = () => {
   return (
@@ -35,12 +36,22 @@ const TheTable = () => {
         <div className="all-numbers">
           <Numbers property="color" value="green"/>
           <div>
-            <Numbers property="column" value="3rd"/>
-            <Numbers property="column" value="2nd"/>
-            <Numbers property="column" value="1st"/>
+            {['3rd', '2nd', '1st'].map((item) => {
+              return <Numbers property="column" value={item} key={item}/>
+            })}
+            
             <div className="column-line">
               {column.map((item) => {
                 return <OutsideNumbers
+                  key={item.value}
+                  property={item.property}
+                  value={item.value}/>
+              })}
+            </div>
+
+            <div id="street-bets">
+              {street.map((item) => {
+                return <Street
                   key={item.value}
                   property={item.property}
                   value={item.value}/>

@@ -1,8 +1,36 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
-const Street = () => {
+import './style.scss';
+import { getNumbersByProperties } from '../../../helpers';
+
+const Street = (props) => {
+  const { property, value } = props;
+  const numbersList = useSelector(state => state.numbersList) || [];
+  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
+  const data = [
+    {
+      id: value.replace(/\s+/g, '-').toLowerCase(),
+      name: value,
+      checked: false,
+      numbers: numbers.sort((a, b) => a - b),
+    }
+  ];
+
   return (
-    <div>Street</div>
+    <div className={`street ${value.replace(/\s+/g, '-').toLowerCase()}`}>
+      {data.map((value, index) => {
+        return (
+          <div className="form" key={index} >
+            <label className={"form-label"} htmlFor={value.id} title={`Streets: ${value.numbers}`}>
+              <input className="form-input" type="checkbox" id={value.id} value={value.id}/>
+              {/* <span className="number-name"></span> */}
+              {value.checked && <span className="chip"></span>}
+            </label>
+          </div>
+        )
+      })}
+    </div>
   );
 };
 
