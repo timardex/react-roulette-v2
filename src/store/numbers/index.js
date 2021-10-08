@@ -1,17 +1,21 @@
 import { removeDubs } from '../../helpers';
-import { splitHorizontal, sixLineChunk, streetChunk, color, dozen, column, raceTrack } from './helpers';
-import { allNumbers, wheelNumbers, columnLine1, columnLine2, columnLine3 } from './arrays';
-
-/* const splitChunk = () => {
-  const splitVertical = () => {
-    const array = columnLine1.map((item, index) => {
-      return [item, columnLine2[index], columnLine3[index]];
-    });
-    return array;
-  };
-
-  console.log(splitVertical())
-}; */
+import {
+  splitHorizontal,
+  splitVertical,
+  sixLineChunk,
+  streetChunk,
+  color,
+  dozen,
+  column,
+  raceTrack,
+} from './helpers';
+import {
+  allNumbers,
+  wheelNumbers,
+  columnLine1,
+  columnLine2,
+  columnLine3,
+} from './arrays';
 
 const numbersList = allNumbers.map((number, index) => {
   const evenOdd = number > 0
@@ -27,13 +31,19 @@ const numbersList = allNumbers.map((number, index) => {
         .find((street) => street.numbers.includes(number))
     : '';
 
-  const sixline = sixLineChunk(allNumbers).filter((line) => line.numbers.includes(number));
+  const sixline = sixLineChunk(allNumbers)
+    .filter((line) => line.numbers.includes(number))
+    .map(item => item.name);
 
-  const horizontalSplit = [
+  const horizontalSplit = removeDubs([
     ...splitHorizontal([0, ...columnLine1]),
     ...splitHorizontal([0, ...columnLine2]),
     ...splitHorizontal([0, ...columnLine3])
-  ]
+  ]).filter(split => split.numbers.includes(number))
+    .map(item => item.name);
+
+  const verticalSplit = splitVertical().filter(split => split.numbers.includes(number))
+    .map(item => item.name)
 
   return {
     id: `${number}`,
@@ -43,14 +53,17 @@ const numbersList = allNumbers.map((number, index) => {
     properties: {
       evenOdd,
       highLow,
+      street: street.name,
       color: color(number, index),
       raceTrack: raceTrack(number),
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
-      street: street.name,
-      sixline: sixline.map(item => item.name),
-      horizontalSplit: removeDubs(horizontalSplit).filter(split => split.includes(number))
+      sixline,
+      splits: {
+        horizontal: horizontalSplit,
+        vertical: verticalSplit,
+      }
     },
   };
 });

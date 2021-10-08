@@ -2,9 +2,36 @@ import { everyNth } from '../../helpers';
 import { columnLine1, columnLine2, columnLine3, orphelins, cylinders, voisons, jeu0s } from './arrays';
 
 export const splitHorizontal = (array) => {
-  return array.map((item, index) => {
+  const splited = array.map((item, index) => {
     const result = array.slice(0, index + 2);
     return result.slice(-2);
+  });
+  
+  return splited.map((numbers) => {
+    const name = `${numbers[0]}-${numbers[1]}`;
+    return { numbers, name };
+  });
+};
+
+export const splitVertical = () => {
+  const array = columnLine1.map((item, index) => {
+    const newArray = [item, columnLine2[index], columnLine3[index]];
+    const splited = newArray.map((el, elIndex) => {
+      return newArray.slice(0, elIndex + 1);
+    });
+    const result = [splited[1], splited[2].slice(1)];
+    return result;
+  });
+
+  const result = [];
+
+  array.map((item) => {
+    return item.forEach(child => result.push(child))
+  });
+
+  return result.map((numbers) => {
+    const name = `${numbers[0]}-${numbers[1]}`;
+    return { numbers, name };
   });
 };
 
@@ -13,6 +40,7 @@ export const sixLineChunk = (array) => {
   const slicedNumbers = numbers.map((item) => {
     return numbers.slice(item, item + 6);
   });
+  
   const sixLineZero = slicedNumbers.find((item) => item.includes(0)).slice(0, 4);
   const sixLineOther = slicedNumbers.filter((item, index) => !item.includes(0) && index < 32);
   
