@@ -1,5 +1,5 @@
 import { removeDubs } from '../../helpers';
-import numbersList from '../../store/helpers/numbers';
+import numbersList from '../../store/numbers';
 
 export const one2one = [
   {

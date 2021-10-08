@@ -1,4 +1,4 @@
-import numbersList from '../helpers/numbers';
+import numbersList from '../numbers';
 
 const GAME_INITIALIZER = (state) => {
   return {
