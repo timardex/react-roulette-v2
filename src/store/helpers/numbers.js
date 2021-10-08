@@ -1,4 +1,4 @@
-import { everyNth } from '../../helpers';
+import { everyNth, removeDubs } from '../../helpers';
 
 const allNumbers = [...Array(37).keys()];
 const cylinders = [27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33];
@@ -10,32 +10,23 @@ const columnLine1 = [...everyNth(allNumbers, 2)];
 const columnLine2 = [...everyNth(allNumbers, 1)];
 const columnLine3 = [...everyNth(allNumbers, 3)];
 
-const splitChunk = () => {
-  const colum3 = [...columnLine3];
-  const colum2 = [...columnLine2];
-  const colum1 = [...columnLine1];
-
+/* const splitChunk = () => {
   const splitVertical = () => {
-    const array = colum1.map((item, index) => {
-      return [item, colum2[index], colum3[index]];
+    const array = columnLine1.map((item, index) => {
+      return [item, columnLine2[index], columnLine3[index]];
     });
     return array;
   };
 
   console.log(splitVertical())
+}; */
 
-  /* const splitHorizontal = (array) => {
-    return array.unshift(0).map((item, index) => {
-      const result = array.slice(0, index + 2);
-      return result.slice(-2);
-    });
-  }; */
-  /* const splitCol3 = splitHorizontal(colum3);
-  const splitCol2 = splitHorizontal(colum2);
-  const splitCol1 = splitHorizontal(colum1); */
+const splitHorizontal = (array) => {
+  return array.map((item, index) => {
+    const result = array.slice(0, index + 2);
+    return result.slice(-2);
+  });
 };
-
-splitChunk()
 
 const sixLineChunk = () => {
   const numbers = [...allNumbers];
@@ -135,6 +126,7 @@ const numbersList = allNumbers.map((number, index) => {
   const highLow = number > 0 ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36' : 'neutral';
   const street = number !== 0 ? streetChunk().find((street) => street.numbers.includes(number)) : '';
   const sixline = sixLineChunk().filter((line) => line.numbers.includes(number));
+  const horizontalSplit = [...splitHorizontal([0, ...columnLine1]), ...splitHorizontal([0, ...columnLine2]), ...splitHorizontal([0, ...columnLine3])]
 
   return {
     id: `${number}`,
@@ -151,8 +143,9 @@ const numbersList = allNumbers.map((number, index) => {
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
       street: street.name,
       sixline: sixline.map(item => item.name),
+      horizontalSplit: removeDubs(horizontalSplit).filter(split => split.includes(number))
     },
   };
 });
-
+console.log(numbersList)
 export default numbersList;
