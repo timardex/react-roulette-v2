@@ -116,5 +116,3 @@ export const horizontalSplits = {
   column2: horizontalSplitsByColumn(columnLine2),
   column1: horizontalSplitsByColumn(columnLine1),
 };
-
-console.log(horizontalSplits)

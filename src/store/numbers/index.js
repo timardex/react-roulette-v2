@@ -41,8 +41,7 @@ const numbersList = allNumbers.map((number, index) => {
     ...splitHorizontal([0, ...columnLine3])
   ]).filter(split => split.numbers.includes(number));
 
-  const verticalSplit = splitVertical().filter(split => split.numbers.includes(number))
-    .map(item => item.name)
+  const verticalSplit = splitVertical().filter(split => split.numbers.includes(number));
 
   return {
     id: `${number}`,
