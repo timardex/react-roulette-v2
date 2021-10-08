@@ -1,3 +1,4 @@
+import { removeDubs } from '../../helpers';
 import numbersList from '../../store/helpers/numbers';
 
 export const one2one = [
@@ -82,7 +83,7 @@ const streetSetup = numbersList.map((item) => {
   return { property, value };
 }).filter(item => item.value !== '');
 
-export const street = Array.from(new Set(streetSetup.map(JSON.stringify))).map(JSON.parse);
+export const street = removeDubs(streetSetup);
 
 const sixLineSetup = numbersList.map((item) => {
   const property = 'sixline';
@@ -90,5 +91,5 @@ const sixLineSetup = numbersList.map((item) => {
   return { property, value };
 });
 
-export const sixLine = Array.from(new Set(sixLineSetup.map(JSON.stringify))).map(JSON.parse);
+export const sixLine = removeDubs(sixLineSetup);
 

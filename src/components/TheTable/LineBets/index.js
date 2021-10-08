@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from 'react-redux';
 
 import './style.scss';
-import { getNumbersByProperties } from '../../../helpers';
+import { getNumbersByProperties, spaceReplace } from '../../../helpers';
 
 const LineBets = (props) => {
   const { property, value } = props;
@@ -10,7 +10,7 @@ const LineBets = (props) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
   const data = [
     {
-      id: value.replace(/\s+/g, '-').toLowerCase(),
+      id: spaceReplace(value),
       name: value,
       checked: false,
       numbers: numbers.sort((a, b) => a - b),
@@ -18,7 +18,7 @@ const LineBets = (props) => {
   ];
 
   return (
-    <div className={`line-bets ${property} ${value.replace(/\s+/g, '-').toLowerCase()}`}>
+    <div className={`line-bets ${property} ${spaceReplace(value)}`}>
       {data.map((value, index) => {
         return (
           <div className="form" key={index} >
