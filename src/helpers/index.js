@@ -1,9 +1,15 @@
 export const getNumbersByProperties = (array, property, value) => {
-  return array.filter((el) => {
-    return typeof el.properties[property] === 'object'
-      ? el.properties[property].includes(value)
-      : el.properties[property] === value;
+  const result = array.filter((item) => {
+    if(typeof item.properties[property] === 'object') {
+      if(property.includes('Split')) {
+        return item.properties[property].map(el => el.name === value).includes(true);
+      }
+      return item.properties[property].includes(value);
+    }
+    return item.properties[property] === value;
   });
+  
+  return result;
 };
 
 export const everyNth = (array, nth) => array.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);

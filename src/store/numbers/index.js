@@ -39,8 +39,7 @@ const numbersList = allNumbers.map((number, index) => {
     ...splitHorizontal([0, ...columnLine1]),
     ...splitHorizontal([0, ...columnLine2]),
     ...splitHorizontal([0, ...columnLine3])
-  ]).filter(split => split.numbers.includes(number))
-    .map(item => item.name);
+  ]).filter(split => split.numbers.includes(number));
 
   const verticalSplit = splitVertical().filter(split => split.numbers.includes(number))
     .map(item => item.name)
@@ -60,10 +59,8 @@ const numbersList = allNumbers.map((number, index) => {
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
       sixline,
-      splits: {
-        horizontal: horizontalSplit,
-        vertical: verticalSplit,
-      }
+      horizontalSplit,
+      verticalSplit
     },
   };
 });

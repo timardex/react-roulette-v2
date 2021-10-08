@@ -1,6 +1,13 @@
 import { everyNth } from '../../helpers';
 import { columnLine1, columnLine2, columnLine3, orphelins, cylinders, voisons, jeu0s } from './arrays';
 
+/* const corners = () => {
+  const array = allNumbers;
+  console.log(array)
+};
+
+corners(); */
+
 export const splitHorizontal = (array) => {
   const splited = array.map((item, index) => {
     const result = array.slice(0, index + 2);

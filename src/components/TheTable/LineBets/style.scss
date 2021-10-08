@@ -2,6 +2,15 @@
 
 .line-bets {
   pointer-events: all;
+
+  &.horizontalSplit {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+  }
   
   .form {
     position: relative;

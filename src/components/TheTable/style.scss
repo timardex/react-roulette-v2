@@ -71,8 +71,24 @@
     pointer-events: none;
   }
 
+  #street-bets {
+    left: 33px;
+  }
+
   #sixline-bets {
-    left: 13px;
+    left: 14px;
+  }
+
+  #horizontal-splits {
+    position: absolute;
+    top: 0; left: 14px;
+    width: 455px;
+    height: 100%;
+    pointer-events: none;
+    .col {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 
   .outside-numbers {

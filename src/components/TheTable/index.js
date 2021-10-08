@@ -1,7 +1,15 @@
 import React from 'react';
 
 import './style.scss';
-import { one2one, dozen, column, raceTrack, street, sixLine } from './data';
+import {
+  one2one,
+  dozen,
+  column,
+  raceTrack,
+  street,
+  sixLine,
+  horizontalSplits,
+} from './data';
 
 import WheelStand from './WheelStand';
 import Numbers from './Numbers';
@@ -64,6 +72,25 @@ const TheTable = () => {
                   key={item.value}
                   property={item.property}
                   value={item.value}/>
+              })}
+            </div>
+
+            <div id="horizontal-splits">
+              {/* {horizontalSplits.column1.map((item) => {
+                return <LineBets
+                  key={item.value}
+                  property={item.property}
+                  value={item.value}/>
+              })} */}
+              {Object.keys(horizontalSplits).map((col) => {
+                return <div className={`${col} col`} key={col}>
+                  {horizontalSplits[col].map((item) => {
+                    return <LineBets
+                      key={item.value}
+                      property={item.property}
+                      value={item.value}/>
+                  })}
+                </div>
               })}
             </div>
           </div>

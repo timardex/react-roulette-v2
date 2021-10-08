@@ -8,6 +8,7 @@ const LineBets = (props) => {
   const { property, value } = props;
   const numbersList = useSelector(state => state.numbersList) || [];
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
+  
   const data = [
     {
       id: spaceReplace(value),
@@ -22,7 +23,7 @@ const LineBets = (props) => {
       {data.map((value, index) => {
         return (
           <div className="form" key={index} >
-            <label className={"form-label"} htmlFor={value.id} title={`${property}: ${value.numbers}`}>
+            <label className={"form-label"} htmlFor={value.id} title={`${property.includes('Split') ? 'split' : property}: ${value.numbers}`}>
               <input className="form-input" type="checkbox" id={value.id} value={value.id}/>
               {value.checked && <span className="chip"></span>}
             </label>

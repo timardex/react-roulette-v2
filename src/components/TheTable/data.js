@@ -1,5 +1,6 @@
 import { removeDubs } from '../../helpers';
 import numbersList from '../../store/numbers';
+import { columnLine1, columnLine2, columnLine3 } from '../../store/numbers/arrays';
 
 export const one2one = [
   {
@@ -88,8 +89,32 @@ export const street = removeDubs(streetSetup);
 const sixLineSetup = numbersList.map((item) => {
   const property = 'sixline';
   const value = item.properties.sixline[item.properties.sixline.length - 1];
+  
   return { property, value };
 });
 
 export const sixLine = removeDubs(sixLineSetup);
 
+const horizontalSplitsByColumn = (array) => {
+  const horizontalSplitSetup = numbersList.map((item, index) => index !== 0 ? item.properties.horizontalSplit : '')
+    .filter(item => item !== '').reduce((a, b) => a.concat(b));
+
+  const result = removeDubs(horizontalSplitSetup).map((col) => {
+    const arrayHasNumbers = col.numbers.map(el => {
+      return array.includes(el);
+    }).includes(true);
+    const property = 'horizontalSplit';
+    const value = col.name;
+    return arrayHasNumbers ? { property, value } : '';
+  }).filter(item => item !== '');
+
+  return result;
+};
+
+export const horizontalSplits = {
+  column3: horizontalSplitsByColumn(columnLine3),
+  column2: horizontalSplitsByColumn(columnLine2),
+  column1: horizontalSplitsByColumn(columnLine1),
+};
+
+console.log(horizontalSplits)
