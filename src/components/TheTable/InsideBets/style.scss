@@ -1,0 +1,61 @@
+@import '../../../assets/styles/variables';
+
+.inside-bets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .column-line {
+    position: absolute !important;
+    right: -45px;
+    top: 0;
+    font-size: 1rem;
+    width: 36px;
+    height: 100%;
+
+    .other-bets {
+      color: $color1;
+      transform: rotate(-90deg);
+      height: 36px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color1a;
+
+      label {
+        border: none !important;
+      }
+    }
+  }
+
+  #street-bets, #sixline-bets {
+    position: absolute;
+    top: -8px;
+    display: flex;
+    justify-content: space-around;
+    width: 455px;
+    pointer-events: none;
+  }
+
+  #street-bets {
+    left: 33px;
+  }
+
+  #sixline-bets {
+    left: 14px;
+  }
+
+  #horizontal-splits {
+    position: absolute;
+    top: 0; left: 14px;
+    width: 455px;
+    height: 100%;
+    pointer-events: none;
+    .col {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

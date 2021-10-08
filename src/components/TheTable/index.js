@@ -4,17 +4,13 @@ import './style.scss';
 import {
   one2one,
   dozen,
-  column,
   raceTrack,
-  street,
-  sixLine,
-  horizontalSplits,
 } from './data';
 
 import WheelStand from './WheelStand';
-import Numbers from './Numbers';
 import OutsideNumbers from './OutsideNumbers';
-import LineBets from './LineBets';
+import InsideBets from './InsideBets';
+
 
 const TheTable = () => {
   return (
@@ -41,60 +37,7 @@ const TheTable = () => {
           })}
         </div>
 
-        <div className="all-numbers">
-          <Numbers property="color" value="green"/>
-          <div>
-            {['3rd', '2nd', '1st'].map((item) => {
-              return <Numbers property="column" value={item} key={item}/>
-            })}
-            
-            <div className="column-line">
-              {column.map((item) => {
-                return <OutsideNumbers
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
-            </div>
-
-            <div id="street-bets">
-              {street.map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
-            </div>
-
-            <div id="sixline-bets">
-              {sixLine.map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
-            </div>
-
-            <div id="horizontal-splits">
-              {/* {horizontalSplits.column1.map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })} */}
-              {Object.keys(horizontalSplits).map((col) => {
-                return <div className={`${col} col`} key={col}>
-                  {horizontalSplits[col].map((item) => {
-                    return <LineBets
-                      key={item.value}
-                      property={item.property}
-                      value={item.value}/>
-                  })}
-                </div>
-              })}
-            </div>
-          </div>
-        </div>
+        <InsideBets />
 
         <div className="outside-numbers">
           {raceTrack.map((item) => {
@@ -105,7 +48,6 @@ const TheTable = () => {
               value={item.value}/>
           })}
         </div>
-
       </div>
     </div>
   );
