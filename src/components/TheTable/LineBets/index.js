@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 import { getNumbersByProperties } from '../../../helpers';
 
-const Street = (props) => {
+const LineBets = (props) => {
   const { property, value } = props;
   const numbersList = useSelector(state => state.numbersList) || [];
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
-  
   const data = [
     {
       id: value.replace(/\s+/g, '-').toLowerCase(),
@@ -19,13 +18,12 @@ const Street = (props) => {
   ];
 
   return (
-    <div className={`street ${value.replace(/\s+/g, '-').toLowerCase()}`}>
+    <div className={`line-bets ${property} ${value.replace(/\s+/g, '-').toLowerCase()}`}>
       {data.map((value, index) => {
         return (
           <div className="form" key={index} >
-            <label className={"form-label"} htmlFor={value.id} title={`Streets: ${value.numbers}`}>
+            <label className={"form-label"} htmlFor={value.id} title={`${property}: ${value.numbers}`}>
               <input className="form-input" type="checkbox" id={value.id} value={value.id}/>
-              {/* <span className="number-name"></span> */}
               {value.checked && <span className="chip"></span>}
             </label>
           </div>
@@ -35,4 +33,4 @@ const Street = (props) => {
   );
 };
 
-export default Street;
+export default LineBets;

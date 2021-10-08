@@ -6,8 +6,7 @@ import { one2one, dozen, column, raceTrack, street, sixLine } from './data';
 import WheelStand from './WheelStand';
 import Numbers from './Numbers';
 import OutsideNumbers from './OutsideNumbers';
-import Street from './Street';
-import SixLine from './SixLine';
+import LineBets from './LineBets';
 
 const TheTable = () => {
   return (
@@ -52,7 +51,7 @@ const TheTable = () => {
 
             <div id="street-bets">
               {street.map((item) => {
-                return <Street
+                return <LineBets
                   key={item.value}
                   property={item.property}
                   value={item.value}/>
@@ -61,7 +60,7 @@ const TheTable = () => {
 
             <div id="sixline-bets">
               {sixLine.map((item) => {
-                return <SixLine
+                return <LineBets
                   key={item.value}
                   property={item.property}
                   value={item.value}/>
