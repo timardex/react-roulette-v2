@@ -80,8 +80,8 @@ const horizontalSplitsByColumn = (array) => {
     .filter(item => item !== '').reduce((a, b) => a.concat(b));
 
   const result = removeDubs(horizontalSplitSetup).map((col) => {
-    const arrayHasNumbers = col.numbers.map(el => {
-      return array.includes(el);
+    const arrayHasNumbers = col.numbers.map((number) => {
+      return array.includes(number);
     }).includes(true);
     const property = 'horizontalSplit';
     const value = col.name;
@@ -95,4 +95,18 @@ export const horizontalSplits = {
   column3: horizontalSplitsByColumn(columnLine3),
   column2: horizontalSplitsByColumn(columnLine2),
   column1: horizontalSplitsByColumn(columnLine1),
+};
+
+const verticalSplitSetup = removeDubs(
+  numbersList.map((item, index) => index !== 0 ? item.properties.verticalSplit : '')
+    .filter(item => item !== '').reduce((a, b) => a.concat(b))
+).map((item) => {
+  const property = 'verticalSplit';
+  const value = item.name;
+  return { property, value };
+});
+
+export const verticalSplits = {
+  split1: verticalSplitSetup.filter((el, index) => index % 2 !== 0),
+  split2: verticalSplitSetup.filter((el, index) => index % 2 === 0),
 };

@@ -47,7 +47,7 @@
     left: 14px;
   }
 
-  #horizontal-splits {
+  #horizontal-splits, #vertical-splits {
     position: absolute;
     top: 0; left: 14px;
     width: 455px;
@@ -56,6 +56,21 @@
     .col {
       display: flex;
       justify-content: space-around;
+    }
+  }
+
+  #vertical-splits {
+    left: 33px;
+    .col {
+      height: 50%;
+      
+      &.split1 {
+        align-items: flex-end;
+      }
+
+      &.split2 {
+        align-items: flex-start;
+      }
     }
   }
 }

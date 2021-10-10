@@ -7,6 +7,7 @@ import {
   street,
   sixLine,
   horizontalSplits,
+  verticalSplits
 } from '../data';
 
 import Numbers from '../Numbers';
@@ -46,6 +47,19 @@ const InsideBets = () => {
               key={item.value}
               property={item.property}
               value={item.value}/>
+          })}
+        </div>
+
+        <div id="vertical-splits">
+          {Object.keys(verticalSplits).map((col) => {
+            return <div className={`${col} col`} key={col}>
+              {verticalSplits[col].map((item) => {
+                return <LineBets
+                  key={item.value}
+                  property={item.property}
+                  value={item.value}/>
+              })}
+            </div>
           })}
         </div>
 
