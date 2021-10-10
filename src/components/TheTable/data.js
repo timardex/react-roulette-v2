@@ -5,7 +5,7 @@ import { columnLine1, columnLine2, columnLine3 } from '../../store/numbers/array
 export const one2one = [
   {
     property: 'highLow',
-    value: '1 to 18',
+    value: '1-to-18',
   },
   {
     property: 'evenOdd',
@@ -25,22 +25,22 @@ export const one2one = [
   },
   {
     property: 'highLow',
-    value: '19 to 36',
+    value: '19-to-36',
   },
 ];
 
 export const dozen = [
   {
     property: 'dozen',
-    value: '1st dozen',
+    value: '1st-dozen',
   },
   {
     property: 'dozen',
-    value: '2nd dozen',
+    value: '2nd-dozen',
   },
   {
     property: 'dozen',
-    value: '3rd dozen',
+    value: '3rd-dozen',
   },
 ];
 
@@ -80,15 +80,20 @@ export const raceTrack = [
 
 const streetSetup = numbersList.map((item) => {
   const property = 'street';
-  const value = item.properties.street || '';
+  const value = item.properties.street.length ? item.properties.street.find((el) => {
+    return el.numbers.includes(item.number);
+  }).name : null;
   return { property, value };
-}).filter(item => item.value !== '');
+}).filter(item => item.value !== null);
+
 
 export const street = removeDubs(streetSetup);
-
+console.log(street)
 const sixLineSetup = numbersList.map((item) => {
   const property = 'sixline';
-  const value = item.properties.sixline[item.properties.sixline.length - 1];
+  const value = item.properties.sixline.find((el) => {
+    return el.numbers.includes(item.number);
+  }).name;
   
   return { property, value };
 });

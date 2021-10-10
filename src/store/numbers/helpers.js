@@ -54,24 +54,18 @@ export const sixLineChunk = (array) => {
   const result = [sixLineZero, ...everyNth(sixLineOther, 3)];
   
   return result.map((numbers, index) => {
-    const name = `sixline ${index}`;
+    const name = `sixline-${index}`;
     return { numbers, name };
   });
 };
 
 export const streetChunk = (array1, array2, array3) => {
-  /* const result = allNumbers.reduce((memo, value, index) => {
-    if (index % 3 === 1 && index !== 0) memo.push([])
-    memo[memo.length - 1].push(value)
-    return memo
-  }, [[]]); */
-
   const result = array1.map((item, index) => {
     return [item, array2[index], array3[index]];
   });
   
   return result.map((numbers, index) => {
-    const name = `street ${index}`;
+    const name = `street-${index}`;
     return { numbers, name };
   });
 };
@@ -90,15 +84,15 @@ export const color = (number, index) => {
 
 export const dozen = ((number) => {
   if(number >= 1 && number <= 12) {
-    return '1st dozen';
+    return '1st-dozen';
   }
 
   if(number >= 13 && number <= 24) {
-    return '2nd dozen';
+    return '2nd-dozen';
   }
 
   if(number >= 25) {
-    return '3rd dozen';
+    return '3rd-dozen';
   }
 
   return 'neutral';

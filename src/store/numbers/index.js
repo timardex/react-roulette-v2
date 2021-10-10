@@ -23,17 +23,14 @@ const numbersList = allNumbers.map((number, index) => {
     : 'neutral';
 
   const highLow = number > 0
-    ? number >= 1 && number <= 18 ? '1 to 18' : '19 to 36'
+    ? number >= 1 && number <= 18 ? '1-to-18' : '19-to-36'
     : 'neutral';
 
-  const street = number !== 0
-    ? streetChunk(columnLine1, columnLine2, columnLine3)
-        .find((street) => street.numbers.includes(number))
-    : '';
+  const street = streetChunk(columnLine1, columnLine2, columnLine3)
+        .filter((street) => street.numbers.includes(number));
 
   const sixline = sixLineChunk(allNumbers)
     .filter((line) => line.numbers.includes(number))
-    .map(item => item.name);
 
   const horizontalSplit = removeDubs([
     ...splitHorizontal([0, ...columnLine1]),
@@ -51,7 +48,7 @@ const numbersList = allNumbers.map((number, index) => {
     properties: {
       evenOdd,
       highLow,
-      street: street.name,
+      street: street,
       color: color(number, index),
       raceTrack: raceTrack(number),
       dozen: dozen(number),

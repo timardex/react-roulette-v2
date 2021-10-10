@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import './style.scss';
-import { getNumbersByProperties, spaceReplace } from '../../../helpers';
+import { getNumbersByProperties } from '../../../helpers';
 
 const OutsideNumbers = (props) => {
   const { className, property, value } = props;
@@ -10,7 +10,7 @@ const OutsideNumbers = (props) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
   const data = [
     {
-      id: spaceReplace(value),
+      id: value,
       name: value,
       checked: false,
       numbers: numbers.sort((a, b) => a - b),
