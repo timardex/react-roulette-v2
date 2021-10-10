@@ -59,24 +59,13 @@ export const column = [
   },
 ];
 
-export const raceTrack = [
-  {
-    property: 'raceTrack',
-    value: 'cylinder',
-  },
-  {
-    property: 'raceTrack',
-    value: 'orphelin',
-  },
-  {
-    property: 'raceTrack',
-    value: 'voison',
-  },
-  {
-    property: 'raceTrack',
-    value: 'jeu0',
-  },
-];
+export const setupRaceTrack = numbersList.map((item) => {
+  const property = 'raceTrack';
+  const value = item.properties.raceTrack[0]
+  return { property, value };
+});
+
+export const raceTrack = removeDubs(setupRaceTrack);
 
 const streetSetup = numbersList.map((item) => {
   const property = 'street';
@@ -88,7 +77,7 @@ const streetSetup = numbersList.map((item) => {
 
 
 export const street = removeDubs(streetSetup);
-console.log(street)
+
 const sixLineSetup = numbersList.map((item) => {
   const property = 'sixline';
   const value = item.properties.sixline.find((el) => {

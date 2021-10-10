@@ -123,5 +123,5 @@ export const raceTrack = (item) => {
     return ['orphelin'];
   }
 
-  return voisons.includes(item) && jeu0s.includes(item) ? ['voison', 'jeu0'] : ['voison'];
+  return voisons.includes(item) && jeu0s.includes(item) ? ['jeu0', 'voison'] : ['voison'];
 };
