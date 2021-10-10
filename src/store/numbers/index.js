@@ -46,14 +46,14 @@ const numbersList = allNumbers.map((number, index) => {
     number,
     checked: false,
     properties: {
-      evenOdd,
       highLow,
-      street: street,
+      evenOdd,
       color: color(number, index),
       raceTrack: raceTrack(number),
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
+      street: street,
       sixline,
       horizontalSplit,
       verticalSplit

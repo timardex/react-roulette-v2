@@ -29,37 +29,23 @@ export const one2one = [
   },
 ];
 
-export const dozen = [
-  {
-    property: 'dozen',
-    value: '1st-dozen',
-  },
-  {
-    property: 'dozen',
-    value: '2nd-dozen',
-  },
-  {
-    property: 'dozen',
-    value: '3rd-dozen',
-  },
-];
+const setupDozen = numbersList.map((item) => {
+  const property = 'dozen';
+  const value = item.properties.dozen;
+  return { property, value };
+}).filter(item => item.value !== 'neutral');
 
-export const column = [
-  {
-    property: 'column',
-    value: '3rd',
-  },
-  {
-    property: 'column',
-    value: '2nd',
-  },
-  {
-    property: 'column',
-    value: '1st',
-  },
-];
+export const dozen = removeDubs(setupDozen);
 
-export const setupRaceTrack = numbersList.map((item) => {
+const setupColumn = numbersList.map((item) => {
+  const property = 'column';
+  const value = item.properties.column;
+  return { property, value };
+}).filter(item => item.value !== 'neutral').sort((a, b) => a.value < b.value ? 1 : -1);
+
+export const column = removeDubs(setupColumn);
+
+const setupRaceTrack = numbersList.map((item) => {
   const property = 'raceTrack';
   const value = item.properties.raceTrack[0]
   return { property, value };
