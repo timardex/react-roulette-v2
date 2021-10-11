@@ -4,10 +4,13 @@ import {
   splitVertical,
   sixLineChunk,
   streetChunk,
+  corners,
   color,
   dozen,
   column,
   raceTrack,
+  evenOdd,
+  highLow,
 } from './helpers';
 import {
   allNumbers,
@@ -18,27 +21,18 @@ import {
 } from './arrays';
 
 const numbersList = allNumbers.map((number, index) => {
-  const evenOdd = number > 0
-    ? index % 2 === 0 ? 'even' : 'odd'
-    : 'neutral';
+  const filterArrayByNumber = (array) => {
+    return array.filter((item) => item.numbers.includes(number));
+  };
 
-  const highLow = number > 0
-    ? number >= 1 && number <= 18 ? '1-to-18' : '19-to-36'
-    : 'neutral';
-
-  const street = streetChunk(columnLine1, columnLine2, columnLine3)
-        .filter((street) => street.numbers.includes(number));
-
-  const sixline = sixLineChunk(allNumbers)
-    .filter((line) => line.numbers.includes(number))
+  const street = streetChunk(columnLine1, columnLine2, columnLine3);
+  const sixline = sixLineChunk(allNumbers);
 
   const horizontalSplit = removeDubs([
     ...splitHorizontal([0, ...columnLine1]),
     ...splitHorizontal([0, ...columnLine2]),
     ...splitHorizontal([0, ...columnLine3])
-  ]).filter(split => split.numbers.includes(number));
-
-  const verticalSplit = splitVertical().filter(split => split.numbers.includes(number));
+  ]);
 
   return {
     id: `${number}`,
@@ -46,17 +40,18 @@ const numbersList = allNumbers.map((number, index) => {
     number,
     checked: false,
     properties: {
-      highLow,
-      evenOdd,
+      highLow: highLow(number),
+      evenOdd: evenOdd(number, index),
       color: color(number, index),
       raceTrack: raceTrack(number),
       dozen: dozen(number),
       column: column(number),
       onWheel: wheelNumbers.findIndex(wheel => wheel === number),
-      street: street,
-      sixline,
-      horizontalSplit,
-      verticalSplit
+      street: filterArrayByNumber(street),
+      sixline: filterArrayByNumber(sixline),
+      horizontalSplit: filterArrayByNumber(horizontalSplit),
+      verticalSplit: filterArrayByNumber(splitVertical()),
+      corner: filterArrayByNumber(corners())
     },
   };
 });

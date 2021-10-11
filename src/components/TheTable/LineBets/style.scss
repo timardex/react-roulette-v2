@@ -1,7 +1,6 @@
 @import '../../../assets/styles/variables';
 
 .line-bets {
-  pointer-events: all;
 
   &.horizontalSplit, &.verticalSplit {
     width: 34px;
@@ -15,6 +14,7 @@
   .form {
     position: relative;
     margin: 1px;
+    pointer-events: all;
 
     label {
       width: 13px;

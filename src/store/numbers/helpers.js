@@ -1,12 +1,27 @@
 import { everyNth } from '../../helpers';
 import { columnLine1, columnLine2, columnLine3, orphelins, cylinders, voisons, jeu0s } from './arrays';
 
-/* const corners = () => {
-  const array = allNumbers;
-  console.log(array)
-};
+export const corners = () => {
+  const setupCornerArray = (array1, array2) => {
+    return array1.map((item, index) => {
+      const column1 = array2.slice(index, index + 2);
+      const column2 = array1.slice(index, index + 2);
+      return [...column1, ...column2];
+    }).slice(0, -1);
+  }
 
-corners(); */
+  const array1 = [...[[0,1,2]], ...setupCornerArray(columnLine2, columnLine1)];
+  const array2 = [...[[0,2,3]], ...setupCornerArray(columnLine2, columnLine3)];
+
+  const setupArray = (array) => {
+    return array.map((numbers) => {
+      const name = numbers.toString().replace(/,/g, '-');
+      return { numbers, name };
+    });
+  };
+
+  return [...setupArray(array1), ...setupArray(array2)];
+};
 
 export const splitHorizontal = (array) => {
   const splited = array.map((item, index) => {
@@ -124,4 +139,12 @@ export const raceTrack = (item) => {
   }
 
   return voisons.includes(item) && jeu0s.includes(item) ? ['jeu0', 'voison'] : ['voison'];
+};
+
+export const evenOdd = (number, index) => {
+  return number > 0 ? index % 2 === 0 ? 'even' : 'odd' : 'neutral'
+};
+
+export const highLow = (number) => {
+  return number > 0 ? number >= 1 && number <= 18 ? '1-to-18' : '19-to-36' : 'neutral';
 };

@@ -15,7 +15,7 @@ const Numbers = (props) => {
       {data.map((value, index) => {
         return (
           <div className={`form`} key={index}>
-            <label className={`form-label number-${value.name}`} htmlFor={value.id} title={value.numbers}>
+            <label className={`form-label number-${value.name}`} htmlFor={value.id} title={`#${value.name}`}>
               <input className="form-input" type="checkbox" id={value.id} value={value.id} />
               <span className="number-name" style={{color: value.properties.color}}>{value.name}</span>
               {value.checked && <span className="chip"></span>}
