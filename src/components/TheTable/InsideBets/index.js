@@ -1,22 +1,20 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 import './style.scss';
-
-import {
-  column,
-  street,
-  sixLine,
-  horizontalSplits,
-  verticalSplits,
-  corners
-} from '../data';
 
 import Numbers from '../Numbers';
 import LineBets from '../LineBets';
 import OutsideNumbers from '../OutsideNumbers';
 
 const InsideBets = () => {
-  console.log(horizontalSplits)
+  const column = useSelector(state => state.column) || [];
+  const street = useSelector(state => state.street) || [];
+  const sixLine = useSelector(state => state.sixLine) || [];
+  const horizontalSplits = useSelector(state => state.horizontalSplits) || [];
+  const verticalSplits = useSelector(state => state.verticalSplits) || [];
+  const corners = useSelector(state => state.corners) || [];
+
   return(
     <div className="inside-bets">
       <Numbers property="color" value="green"/>
@@ -26,41 +24,21 @@ const InsideBets = () => {
         })}
         
         <div className="column-line">
-          {column.map((item) => {
-            return <OutsideNumbers
-              key={item.value}
-              property={item.property}
-              value={item.value}/>
-          })}
+          {column.map((item) => <OutsideNumbers key={item.id} data={item}/>)}
         </div>
 
         <div id="street-bets">
-          {street.map((item) => {
-            return <LineBets
-              key={item.value}
-              property={item.property}
-              value={item.value}/>
-          })}
+          {street.map((item) => <LineBets key={item.id} data={item}/>)}
         </div>
 
         <div id="sixline-bets">
-          {sixLine.map((item) => {
-            return <LineBets
-              key={item.value}
-              property={item.property}
-              value={item.value}/>
-          })}
+          {sixLine.map((item) => <LineBets key={item.id} data={item}/>)}
         </div>
 
         <div id="vertical-splits">
           {Object.keys(verticalSplits).map((col) => {
             return <div className={`${col} col`} key={col}>
-              {verticalSplits[col].map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
+              {verticalSplits[col].map((item) => <LineBets key={item.id} data={item}/>)}
             </div>
           })}
         </div>
@@ -68,12 +46,7 @@ const InsideBets = () => {
         <div id="horizontal-splits">
           {Object.keys(horizontalSplits).map((col) => {
             return <div className={`${col} col`} key={col}>
-              {horizontalSplits[col].map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
+              {horizontalSplits[col].map((item) => <LineBets key={item.id} data={item}/>)}
             </div>
           })}
         </div>
@@ -81,12 +54,7 @@ const InsideBets = () => {
         <div id="corners">
           {Object.keys(corners).map((col) => {
             return <div className={`${col} col`} key={col}>
-              {corners[col].map((item) => {
-                return <LineBets
-                  key={item.value}
-                  property={item.property}
-                  value={item.value}/>
-              })}
+              {corners[col].map((item) => <LineBets key={item.id} data={item}/>)}
             </div>
           })}
         </div>

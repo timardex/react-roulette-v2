@@ -1,6 +1,6 @@
 import { removeDubs } from '../../helpers';
-import numbersList from '../../store/numbers';
-import { columnLine1, columnLine2, columnLine3 } from '../../store/numbers/arrays';
+import numbersList from './';
+import { columnLine1, columnLine2, columnLine3 } from './arrays';
 
 export const one2one = [
   {

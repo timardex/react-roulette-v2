@@ -55,5 +55,5 @@ const numbersList = allNumbers.map((number, index) => {
     },
   };
 });
-console.log(numbersList)
+
 export default numbersList;

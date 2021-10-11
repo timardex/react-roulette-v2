@@ -1,34 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import './style.scss';
-import { getNumbersByProperties } from '../../../helpers';
 
 const OutsideNumbers = (props) => {
-  const { className, property, value } = props;
-  const numbersList = useSelector(state => state.numbersList) || [];
-  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
-  const data = [
-    {
-      id: value,
-      name: value,
-      checked: false,
-      numbers: numbers.sort((a, b) => a - b),
-    }
-  ];
+  const { data } = props;
   return (
-    <div className={`${className || ''} other-bets`}>
-      {data.map((value, index) => {
-        return (
-          <div className="form" key={index} >
-            <label className={"form-label"} htmlFor={value.id} title={value.numbers}>
-              <input className="form-input" type="checkbox" id={value.id} value={value.id}/>
-              <span className="number-name">{value.name}</span>
-              {value.checked && <span className="chip"></span>}
-            </label>
-          </div>
-        )
-      })}
+    <div className={`${data.className} other-bets`}>
+      <div className="form" >
+        <label className={"form-label"} htmlFor={data.id} title={data.numbers}>
+          <input className="form-input" type="checkbox" id={data.id} value={data.id}/>
+          <span className="number-name">{data.name}</span>
+          {data.checked && <span className="chip"></span>}
+        </label>
+      </div>
     </div>
   );
 };

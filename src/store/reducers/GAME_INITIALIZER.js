@@ -9,7 +9,7 @@ import {
   horizontalSplits,
   verticalSplits,
   corners,
-} from '../../components/TheTable/data';
+} from '../numbers/data';
 import { getNumbersByProperties } from '../../helpers';
 
 const setupObject = (property, value) => {
@@ -19,6 +19,7 @@ const setupObject = (property, value) => {
     name: `${value}`,
     checked: false,
     numbers: numbers.sort((a, b) => a - b),
+    className: property,
   }
 };
 
@@ -35,9 +36,9 @@ const GAME_INITIALIZER = (state) => {
     street: setupState(street),
     sixLine: setupState(sixLine),
     horizontalSplits: {
-      split1: setupState(horizontalSplits.split1),
-      split2: setupState(horizontalSplits.split2),
       split3: setupState(horizontalSplits.split3),
+      split2: setupState(horizontalSplits.split2),
+      split1: setupState(horizontalSplits.split1),
     },
     verticalSplits: {
       split4: setupState(verticalSplits.split4),
