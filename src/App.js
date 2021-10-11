@@ -11,6 +11,7 @@ import { gameInitializer } from './store/actions';
 
 const App = () => {
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     dispatch(gameInitializer());

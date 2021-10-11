@@ -1,5 +1,5 @@
 import { everyNth } from '../../helpers';
-import { columnLine1, columnLine2, columnLine3, orphelins, cylinders, voisons, jeu0s } from './arrays';
+import { columnLine1, columnLine2, columnLine3, orphelin, cylinder, voison, jeu0 } from './arrays';
 
 export const corners = () => {
   const setupCornerArray = (array1, array2) => {
@@ -130,15 +130,15 @@ export const column = (item) => {
 };
 
 export const raceTrack = (item) => {
-  if(cylinders.includes(item)) {
+  if(cylinder.includes(item)) {
     return ['cylinder'];
   }
 
-  if(orphelins.includes(item)) {
+  if(orphelin.includes(item)) {
     return ['orphelin'];
   }
 
-  return voisons.includes(item) && jeu0s.includes(item) ? ['jeu0', 'voison'] : ['voison'];
+  return voison.includes(item) && jeu0.includes(item) ? ['jeu0', 'voison'] : ['voison'];
 };
 
 export const evenOdd = (number, index) => {

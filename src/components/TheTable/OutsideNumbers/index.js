@@ -16,7 +16,6 @@ const OutsideNumbers = (props) => {
       numbers: numbers.sort((a, b) => a - b),
     }
   ];
-
   return (
     <div className={`${className || ''} other-bets`}>
       {data.map((value, index) => {

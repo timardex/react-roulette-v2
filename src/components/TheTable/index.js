@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import './style.scss';
 import {
@@ -13,6 +14,10 @@ import InsideBets from './InsideBets';
 
 
 const TheTable = () => {
+
+  const raceTracks = useSelector(state => state.corners) || [];
+  console.log(raceTracks)
+
   return (
     <div id="the-table">
       <WheelStand />
