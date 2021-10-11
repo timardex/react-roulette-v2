@@ -7,7 +7,8 @@ import {
   street,
   sixLine,
   horizontalSplits,
-  verticalSplits
+  verticalSplits,
+  corners
 } from '../data';
 
 import Numbers from '../Numbers';
@@ -67,6 +68,19 @@ const InsideBets = () => {
           {Object.keys(horizontalSplits).map((col) => {
             return <div className={`${col} col`} key={col}>
               {horizontalSplits[col].map((item) => {
+                return <LineBets
+                  key={item.value}
+                  property={item.property}
+                  value={item.value}/>
+              })}
+            </div>
+          })}
+        </div>
+
+        <div id="corners">
+          {Object.keys(corners).map((col) => {
+            return <div className={`${col} col`} key={col}>
+              {corners[col].map((item) => {
                 return <LineBets
                   key={item.value}
                   property={item.property}

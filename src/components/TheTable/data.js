@@ -110,3 +110,17 @@ export const verticalSplits = {
   split1: verticalSplitSetup.filter((el, index) => index % 2 !== 0),
   split2: verticalSplitSetup.filter((el, index) => index % 2 === 0),
 };
+
+const setupCorner = numbersList.map((item) => {
+  return item.properties.corner.map((el) => {
+    const property = 'corner';
+    const value = el.name;
+
+    return { property, value };
+  });
+}).reduce((a, b) => a.concat(b));
+
+export const corners = {
+  corner1: removeDubs(setupCorner).filter((el, index) => index % 2 !== 0),
+  corner2: removeDubs(setupCorner).filter((el, index) => index % 2 === 0)
+};

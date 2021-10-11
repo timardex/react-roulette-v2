@@ -1,7 +1,8 @@
 export const getNumbersByProperties = (array, property, value) => {
   const result = array.filter((item) => {
     if(typeof item.properties[property] === 'object') {
-      if(property.includes('Split') || property === 'sixline' || property === 'street') {
+      const condition = property.includes('Split') || property === 'sixline' || property === 'street' || property === 'corner';
+      if(condition) {
         return item.properties[property].map(el => el.name === value).includes(true);
       }
       return item.properties[property].includes(value);
