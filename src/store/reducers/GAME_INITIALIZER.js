@@ -35,13 +35,13 @@ const GAME_INITIALIZER = (state) => {
     street: setupState(street),
     sixLine: setupState(sixLine),
     horizontalSplits: {
-      split1: setupState(horizontalSplits.column1),
-      split2: setupState(horizontalSplits.column2),
-      split3: setupState(horizontalSplits.column3),
+      split1: setupState(horizontalSplits.split1),
+      split2: setupState(horizontalSplits.split2),
+      split3: setupState(horizontalSplits.split3),
     },
     verticalSplits: {
-      split1: setupState(verticalSplits.split1),
-      split2: setupState(verticalSplits.split2),
+      split4: setupState(verticalSplits.split4),
+      split5: setupState(verticalSplits.split5),
     },
     corners: {
       corner1: setupState(corners.corner1),

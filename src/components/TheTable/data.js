@@ -92,9 +92,9 @@ const horizontalSplitsByColumn = (array) => {
 };
 
 export const horizontalSplits = {
-  column3: horizontalSplitsByColumn(columnLine3),
-  column2: horizontalSplitsByColumn(columnLine2),
-  column1: horizontalSplitsByColumn(columnLine1),
+  split3: horizontalSplitsByColumn(columnLine3),
+  split2: horizontalSplitsByColumn(columnLine2),
+  split1: horizontalSplitsByColumn(columnLine1),
 };
 
 const verticalSplitSetup = removeDubs(
@@ -107,8 +107,8 @@ const verticalSplitSetup = removeDubs(
 });
 
 export const verticalSplits = {
-  split1: verticalSplitSetup.filter((el, index) => index % 2 !== 0),
-  split2: verticalSplitSetup.filter((el, index) => index % 2 === 0),
+  split4: verticalSplitSetup.filter((el, index) => index % 2 !== 0),
+  split5: verticalSplitSetup.filter((el, index) => index % 2 === 0),
 };
 
 const setupCorner = numbersList.map((item) => {

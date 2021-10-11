@@ -16,6 +16,7 @@ import LineBets from '../LineBets';
 import OutsideNumbers from '../OutsideNumbers';
 
 const InsideBets = () => {
+  console.log(horizontalSplits)
   return(
     <div className="inside-bets">
       <Numbers property="color" value="green"/>
