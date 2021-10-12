@@ -4,7 +4,7 @@ import ballEffect from '../../assets/sounds/ball-effect.mp3';
 import useAudio from '../useAudio';
 import { spinBall } from '../../store/actions';
 
-const Button = () => {
+const StartGameBtn = () => {
   const dispatch = useDispatch();
   const btnText = useSelector(state => state.btnText) || '';
 
@@ -25,4 +25,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default StartGameBtn;

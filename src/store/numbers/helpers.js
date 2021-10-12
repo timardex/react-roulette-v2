@@ -138,7 +138,7 @@ export const raceTrack = (item) => {
     return ['orphelin'];
   }
 
-  return voison.includes(item) && jeu0.includes(item) ? ['jeu0', 'voison'] : ['voison'];
+  return voison.includes(item) && jeu0.includes(item) ? ['jeu-0', 'voison'] : ['voison'];
 };
 
 export const evenOdd = (number, index) => {
@@ -146,5 +146,5 @@ export const evenOdd = (number, index) => {
 };
 
 export const highLow = (number) => {
-  return number > 0 ? number >= 1 && number <= 18 ? '1-to-18' : '19-to-36' : 'neutral';
+  return number > 0 ? number >= 1 && number <= 18 ? '1-18' : '19-36' : 'neutral';
 };

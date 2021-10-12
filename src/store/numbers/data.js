@@ -5,7 +5,7 @@ import { columnLine1, columnLine2, columnLine3 } from './arrays';
 export const one2one = [
   {
     property: 'highLow',
-    value: '1-to-18',
+    value: '1-18',
   },
   {
     property: 'evenOdd',
@@ -25,7 +25,7 @@ export const one2one = [
   },
   {
     property: 'highLow',
-    value: '19-to-36',
+    value: '19-36',
   },
 ];
 
