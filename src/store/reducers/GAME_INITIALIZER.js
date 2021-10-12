@@ -48,10 +48,11 @@ const GAME_INITIALIZER = (state) => {
       corner1: setupState(corners.corner1),
       corner2: setupState(corners.corner2),
     },
-    ballEffect: new Audio(require('../../assets/sounds/ball-effect.mp3')),
-    chipEffect: new Audio(require('../../assets/sounds/chip-effect.mp3')),
-    rotateWheel: '',
-    rotateBall: '',
+    rotateWheel: 'rotate-right',
+    rotateBall: 'd-none',
+    btnText: 'Spin it!',
+    outputNumber: null,
+    spinBtn: true,
   };
 };
 
