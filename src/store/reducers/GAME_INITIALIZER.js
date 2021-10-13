@@ -13,7 +13,7 @@ import {
 import { getNumbersByProperties } from '../../helpers';
 
 const setupObject = (property, value) => {
-  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.number);
+  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers);
   return {
     id: `${value}`,
     name: `${value}`,
@@ -52,6 +52,7 @@ const GAME_INITIALIZER = (state) => {
     rotateBall: 'd-none',
     outputNumber: null,
     spinBtn: false,
+    numbersChecked: [],
   };
 };
 

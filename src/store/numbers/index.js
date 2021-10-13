@@ -37,7 +37,7 @@ const numbersList = allNumbers.map((number, index) => {
   return {
     id: `${number}`,
     name: `${number}`,
-    number,
+    numbers: number,
     checked: false,
     properties: {
       highLow: highLow(number),
@@ -55,5 +55,5 @@ const numbersList = allNumbers.map((number, index) => {
     },
   };
 });
-
+console.log(numbersList)
 export default numbersList;

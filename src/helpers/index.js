@@ -22,3 +22,12 @@ export const spaceReplace = (item) => {
 export const removeDubs = (array) => {
   return Array.from(new Set(array.map(JSON.stringify))).map(JSON.parse);
 };
+
+export const checkNumbers = (number, payload) => {
+  return (number.map(value => value.id === payload.id ?
+      // transform the one with a matching id
+      { ...value, checked: value.checked = !payload.checked } : 
+      // otherwise return original value
+      value
+  ));
+};

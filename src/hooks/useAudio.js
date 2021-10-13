@@ -2,15 +2,13 @@ import { useState, useEffect } from "react";
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
-  const [playing, setPlaying] = useState(false);
+  const [audioPlaying, setPlaying] = useState(false);
 
-  const toggle = () => setPlaying(!playing);
+  const audioToggle = () => setPlaying(!audioPlaying);
 
   useEffect(() => {
-      playing ? audio.play() : audio.pause();
-    },
-    [playing, audio]
-  );
+    audioPlaying ? audio.play() : audio.pause();
+  }, [audioPlaying, audio]);
 
   useEffect(() => {
     audio.addEventListener('ended', () => setPlaying(false));
@@ -19,7 +17,7 @@ const useAudio = url => {
     };
   });
 
-  return [playing, toggle];
+  return [audioPlaying, audioToggle];
 };
 
 export default useAudio;

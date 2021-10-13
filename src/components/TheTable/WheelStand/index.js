@@ -19,8 +19,8 @@ const WheelStand = () => {
       <div className={`r-wheel ${rotateWheel}`}>
         <ul>
           {data.map((value, index) => {
-            return <li className={`number number-${value.number}`} key={index} style={{borderTopColor: value.properties.color}}>
-              <span className="pit">{value.number}</span>
+            return <li className={`number number-${value.numbers}`} key={index} style={{borderTopColor: value.properties.color}}>
+              <span className="pit">{value.numbers}</span>
             </li>
           })}
         </ul>
