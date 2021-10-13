@@ -50,9 +50,8 @@ const GAME_INITIALIZER = (state) => {
     },
     rotateWheel: 'rotate-right',
     rotateBall: 'd-none',
-    btnText: 'Spin it!',
     outputNumber: null,
-    spinBtn: true,
+    spinBtn: false,
   };
 };
 

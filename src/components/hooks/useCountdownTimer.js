@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState(10);
+const useCountdownTimer = time => {
+  const [timeLeft, setTimeLeft] = useState(time);
 
   useEffect(() => {
     // exit early when we reach 0
@@ -19,9 +19,7 @@ const CountdownTimer = () => {
     // when we update it
   }, [timeLeft]);
 
-  return (
-    <span>{timeLeft}</span>
-  );
+  return [timeLeft];
 };
 
-export default CountdownTimer;
+export default useCountdownTimer;

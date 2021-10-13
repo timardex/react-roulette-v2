@@ -2,14 +2,15 @@
 
 #the-table {
   width: 100%;
+  max-width: 910px;
   background: $tableColor2;
   padding: 25px 0;
-  border-radius: .25rem;
+  border-radius: 1rem;
   position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: auto;
+  margin: 1.5rem auto;
   pointer-events: all;
   box-shadow: 0 8px 12px -10px rgba(0, 0, 0, 0.5);
 
@@ -24,7 +25,6 @@
   .the-table-inner {
     position: relative;
     max-width: 481px;
-    margin: auto;
 
     @media(max-width: 992px) {
       max-width: 365px;
