@@ -19,7 +19,7 @@ const useCountdownTimer = time => {
     // when we update it
   }, [timeLeft]);
 
-  return [timeLeft];
+  return [timeLeft, setTimeLeft];
 };
 
 export default useCountdownTimer;

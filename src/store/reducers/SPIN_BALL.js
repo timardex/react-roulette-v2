@@ -1,9 +1,9 @@
 const SPIN_BALL = (state) => {
   return {
     ...state,
-    spinBtn: !state.spinBtn,
-    rotateWheel: state.spinBtn ? 'rotate-right' : 'rotate-left',
-    rotateBall: state.spinBtn ? 'rotate-left d-block' : 'rotate-right d-block',
+    ballIsSpinning: true,
+    rotateWheel: state.ballIsSpinning ? 'rotate-right' : 'rotate-left',
+    rotateBall: state.ballIsSpinning ? 'rotate-left d-block' : 'rotate-right d-block',
   };
 };
 

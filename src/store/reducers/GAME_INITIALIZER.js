@@ -51,7 +51,7 @@ const GAME_INITIALIZER = (state) => {
     rotateWheel: 'rotate-right',
     rotateBall: 'd-none',
     outputNumber: null,
-    spinBtn: false,
+    ballIsSpinning: false,
     numbersChecked: [],
   };
 };
