@@ -31,3 +31,7 @@ export const checkNumbers = (number, payload) => {
       value
   ));
 };
+
+export const removeNumbers = (array) => {
+  return array.map(value => value.checked ? {...value, checked: false} : value)
+}

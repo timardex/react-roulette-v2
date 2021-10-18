@@ -4,11 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import useCountdownTimer from '../../hooks/useCountdownTimer';
 import ballEffect from '../../assets/sounds/ball-effect.mp3';
 import useAudio from '../../hooks/useAudio';
-import { spinBall, noMoreBets } from '../../store/actions';
+import { spinBall, noMoreBets, removeBets } from '../../store/actions';
 
-const StartGameBtn = () => {
+import './style.scss';
+
+const Button = () => {
   const dispatch = useDispatch();
+
   const ballIsSpinning = useSelector(state => state.ballIsSpinning) || false;
+  const numbersChecked = useSelector(state => state.numbersChecked) || [];
+
   const [audioPlaying, audioToggle] = useAudio(ballEffect);
   const [timeLeft, setTimeLeft] = useCountdownTimer(null);
   const [btnText, setBtnText] = useState('Spin it!');
@@ -35,6 +40,10 @@ const StartGameBtn = () => {
 
   return(
     <div className="text-center">
+      {numbersChecked.length > 0 && <button onClick={() => dispatch(removeBets())} type="button">
+        Remove bets
+      </button>}
+
       <button onClick={() => startGame()} type="button" disabled={audioPlaying}>
         <span>{btnText}</span>
         {audioPlaying && timeLeft > 0 && timeLeft}
@@ -43,4 +52,4 @@ const StartGameBtn = () => {
   );
 };
 
-export default StartGameBtn;
+export default Button;

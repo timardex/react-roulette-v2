@@ -6,7 +6,7 @@ import './App.scss';
 //import RotateDevice from './components/RotateDevice';
 import GameHeader from './components/GameHeader';
 import TheTable from './components/TheTable';
-import StartGameBtn from './components/StartGameBtn';
+import Button from './components/Button';
 
 import { gameInitializer } from './store/actions';
 
@@ -21,7 +21,7 @@ const App = () => {
     <div id="roulette-game">
       <GameHeader />
       <TheTable />
-      <StartGameBtn />
+      <Button />
     </div>
   );
 }
