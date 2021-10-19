@@ -60,6 +60,7 @@ const GAME_INITIALIZER = (state) => {
     outputNumber: null,
     ballIsSpinning: false,
     numbersChecked: [],
+    winningNumber: null,
   };
 };
 

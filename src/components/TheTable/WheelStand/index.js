@@ -7,6 +7,8 @@ const WheelStand = () => {
   const numbersList = useSelector(state => state.numbersList) || [];
   const rotateWheel = useSelector(state => state.rotateWheel) || '';
   const rotateBall = useSelector(state => state.rotateBall) || '';
+  const winningNumber = useSelector(state => state.winningNumber) || null;
+  console.log(winningNumber)
 
   const data = numbersList.map(el => el).sort((a, b) => a.properties.onWheel - b.properties.onWheel);
   
@@ -19,7 +21,9 @@ const WheelStand = () => {
       <div className={`r-wheel ${rotateWheel}`}>
         <ul>
           {data.map((value, index) => {
-            return <li className={`number number-${value.numbers}`} key={index} style={{borderTopColor: value.properties.color}}>
+            return <li
+              className={`number number-${value.numbers} ${winningNumber === value.numbers ? 'winner-number' : ''}`}
+              key={index} style={{borderTopColor: value.properties.color}}>
               <span className="pit">{value.numbers}</span>
             </li>
           })}

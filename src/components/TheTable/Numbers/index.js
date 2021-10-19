@@ -15,6 +15,7 @@ const Numbers = (props) => {
   };
 
   const numbersList = useSelector(state => state.numbersList) || [];
+  const winningNumber = useSelector(state => state.winningNumber) || null;
 
   return (
     <div className={`columns ${value === 'green' ? 'number-zero' : ''}`}>
@@ -32,7 +33,7 @@ const Numbers = (props) => {
               <span className="number-name" style={{color: value.properties.color}}>{value.name}</span>
 
               {value.checked && <span className="chip"></span>}
-              <span className="dolly"></span>
+              {winningNumber === value.numbers && <span className="dolly"></span>}
             </label>
           </div>
         )

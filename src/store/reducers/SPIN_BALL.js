@@ -5,6 +5,7 @@ const SPIN_BALL = (state) => {
     rotateWheel: !state.ballIsSpinning ? 'rotate-right' : 'rotate-left',
     rotateBall: !state.ballIsSpinning ? 'rotate-left d-block' : 'rotate-right d-block',
     btnText: 'Place your bets please!',
+    winningNumber: null,
   };
 };
 
