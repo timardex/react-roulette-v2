@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
 import useCountdownTimer from '../../hooks/useCountdownTimer';
 import ballEffect from '../../assets/sounds/ball-effect.mp3';
 import useAudio from '../../hooks/useAudio';
-import { spinBall, noMoreBets, removeBets } from '../../store/actions';
+import { spinBall, noMoreBets, removeBets, gameResult } from '../../store/actions';
 
 import './style.scss';
 
 const Button = () => {
   const dispatch = useDispatch();
 
-  const ballIsSpinning = useSelector(state => state.ballIsSpinning) || false;
   const numbersChecked = useSelector(state => state.numbersChecked) || [];
+  const btnText = useSelector(state => state.btnText) || '';
 
   const [audioPlaying, audioToggle] = useAudio(ballEffect);
   const [timeLeft, setTimeLeft] = useCountdownTimer(null);
-  const [btnText, setBtnText] = useState('Spin it!');
 
   const startGame = () => {
     dispatch(spinBall());
@@ -27,16 +26,12 @@ const Button = () => {
   useEffect(() => {
     if(timeLeft === 0) {
       dispatch(noMoreBets());
-      setBtnText('No more bets!');
-    }
-    if(ballIsSpinning) {
-      setBtnText('Place your bets please!');
     }
 
     if(!audioPlaying) {
-      setBtnText('Spin it!');
+      dispatch(gameResult());
     }
-  }, [timeLeft, ballIsSpinning, audioPlaying, dispatch]);
+  }, [timeLeft, audioPlaying, dispatch]);
 
   return(
     <div className="text-center">

@@ -3,6 +3,7 @@ import spinBall from './spinBall';
 import setBet from './setBet';
 import noMoreBets from './noMoreBets';
 import removeBets from './removeBets';
+import gameResult from './gameResult';
 
 export {
   gameInitializer,
@@ -10,4 +11,5 @@ export {
   setBet,
   noMoreBets,
   removeBets,
+  gameResult,
 };

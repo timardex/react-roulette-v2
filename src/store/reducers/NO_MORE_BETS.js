@@ -1,8 +1,8 @@
 const NO_MORE_BETS = (state) => {
   return {
     ...state,
-    ballIsSpinning: false,
     rotateBall: 'd-none',
+    btnText: 'No more bets!',
   };
 };
 

@@ -25,6 +25,10 @@ const setupObject = (property, value) => {
 
 const setupState = array => array.map(item => setupObject(item.property, item.value));
 
+const getNumbersByProperty = (prop) => {
+  return numbersList.filter(el => el.properties.color === prop);
+};
+
 const GAME_INITIALIZER = (state) => {
   return {
     ...state,
@@ -48,8 +52,11 @@ const GAME_INITIALIZER = (state) => {
       corner1: setupState(corners.corner1),
       corner2: setupState(corners.corner2),
     },
+    redNumbers: getNumbersByProperty('red'),
+    blackNumbers: getNumbersByProperty('black'),
     rotateWheel: 'rotate-right',
     rotateBall: 'd-none',
+    btnText: 'Spin it!',
     outputNumber: null,
     ballIsSpinning: false,
     numbersChecked: [],
