@@ -15,7 +15,7 @@ export const getNumbersByProperties = (array, property, value) => {
 
 export const everyNth = (array, nth) => array.filter((e, i) => i % 3 === 3 - nth).filter(el => el !== 0);
 
-export const spaceReplace = (item) => {
+export const replaceChar = (item) => {
   return item.replace(/\s+/g, '-').toLowerCase();
 };
 
@@ -34,4 +34,4 @@ export const checkNumbers = (number, payload) => {
 
 export const removeNumbers = (array) => {
   return array.map(value => value.checked ? {...value, checked: false} : value)
-}
+};

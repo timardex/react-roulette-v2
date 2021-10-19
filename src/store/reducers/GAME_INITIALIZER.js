@@ -10,24 +10,21 @@ import {
   verticalSplits,
   corners,
 } from '../numbers/data';
-import { getNumbersByProperties } from '../../helpers';
+import { getNumbersByProperties, replaceChar } from '../../helpers';
 
 const setupObject = (property, value) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers);
   return {
-    id: `${value}`,
-    name: `${value}`,
+    id: replaceChar(value),
+    name: replaceChar(value),
     checked: false,
     numbers: numbers.sort((a, b) => a - b),
     className: property,
+    insideBet: false
   }
 };
 
 const setupState = array => array.map(item => setupObject(item.property, item.value));
-
-const getNumbersByProperty = (prop) => {
-  return numbersList.filter(el => el.properties.color === prop);
-};
 
 const GAME_INITIALIZER = (state) => {
   return {
@@ -52,8 +49,6 @@ const GAME_INITIALIZER = (state) => {
       corner1: setupState(corners.corner1),
       corner2: setupState(corners.corner2),
     },
-    redNumbers: getNumbersByProperty('red'),
-    blackNumbers: getNumbersByProperty('black'),
     rotateWheel: 'rotate-right',
     rotateBall: 'd-none',
     btnText: 'Spin it!',

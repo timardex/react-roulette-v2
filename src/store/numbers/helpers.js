@@ -15,7 +15,7 @@ export const corners = () => {
 
   const setupArray = (array) => {
     return array.map((numbers) => {
-      const name = numbers.toString().replace(/,/g, '-');
+      const name = `corner ${numbers.toString().replace(/,/g, '-')}`;
       return { numbers, name };
     });
   };
@@ -30,7 +30,7 @@ export const splitHorizontal = (array) => {
   });
   
   return splited.map((numbers) => {
-    const name = `${numbers[0]}-${numbers[1]}`;
+    const name = `split ${numbers[0]}-${numbers[1]}`;
     return { numbers, name };
   });
 };
@@ -52,7 +52,7 @@ export const splitVertical = () => {
   });
 
   return result.map((numbers) => {
-    const name = `${numbers[0]}-${numbers[1]}`;
+    const name = `split ${numbers[0]}-${numbers[1]}`;
     return { numbers, name };
   });
 };
@@ -68,8 +68,8 @@ export const sixLineChunk = (array) => {
   
   const result = [sixLineZero, ...everyNth(sixLineOther, 3)];
   
-  return result.map((numbers, index) => {
-    const name = `sixline-${index}`;
+  return result.map((numbers) => {
+    const name = `sixline ${numbers.toString().replace(/,/g, '-')}`;
     return { numbers, name };
   });
 };
@@ -80,7 +80,7 @@ export const streetChunk = (array1, array2, array3) => {
   });
   
   return result.map((numbers, index) => {
-    const name = `street-${index}`;
+    const name = `street ${numbers.toString().replace(/,/g, '-')}`;
     return { numbers, name };
   });
 };
@@ -146,5 +146,5 @@ export const evenOdd = (number, index) => {
 };
 
 export const highLow = (number) => {
-  return number > 0 ? number >= 1 && number <= 18 ? '1-18' : '19-36' : 'neutral';
+  return number > 0 ? number >= 1 && number <= 18 ? 'low' : 'high' : 'neutral';
 };

@@ -34,7 +34,7 @@ const Button = () => {
   }, [timeLeft, audioPlaying, dispatch]);
 
   return(
-    <div className="text-center">
+    <div className="text-center mb-1">
       {numbersChecked.length > 0 && <button onClick={() => dispatch(removeBets())} type="button">
         Remove bets
       </button>}

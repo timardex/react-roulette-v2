@@ -27,9 +27,9 @@ const SET_BET = (state, payload) => {
     },
 
     numbersChecked: payload.checked
-      ? state.numbersChecked.concat(payload.name)
+      ? state.numbersChecked.concat(payload)
       : state.numbersChecked.filter((item) => {
-        return item !== payload.name;
+        return item.name !== payload.name;
       }),
   };
 };

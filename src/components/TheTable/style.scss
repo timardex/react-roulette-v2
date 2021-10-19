@@ -2,7 +2,7 @@
 
 #the-table {
   width: 100%;
-  max-width: 910px;
+  max-width: $tableWidth;
   background: $tableColor2;
   padding: 25px 0;
   border-radius: 1rem;

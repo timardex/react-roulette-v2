@@ -39,6 +39,7 @@ const numbersList = allNumbers.map((number, index) => {
     name: `${number}`,
     numbers: number,
     checked: false,
+    insideBet: true,
     properties: {
       highLow: highLow(number),
       evenOdd: evenOdd(number, index),

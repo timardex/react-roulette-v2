@@ -8,7 +8,6 @@ const WheelStand = () => {
   const rotateWheel = useSelector(state => state.rotateWheel) || '';
   const rotateBall = useSelector(state => state.rotateBall) || '';
   const winningNumber = useSelector(state => state.winningNumber) || null;
-  console.log(winningNumber)
 
   const data = numbersList.map(el => el).sort((a, b) => a.properties.onWheel - b.properties.onWheel);
   
