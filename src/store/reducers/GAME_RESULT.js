@@ -1,7 +1,7 @@
 const GAME_RESULT = (state) => {
   return {
     ...state,
-    btnText: 'Spin it!',
+    spinBtnText: 'Spin it!',
     rotateBall: 'd-none',
     winningNumber: Math.floor((Math.random() * 36) + 0),
   };

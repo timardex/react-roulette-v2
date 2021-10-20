@@ -16,14 +16,14 @@ const InsideBets = () => {
   const corners = useSelector(state => state.corners) || [];
 
   return(
-    <div className="inside-bets">
+    <div id="inside-bets">
       <Numbers property="color" value="green"/>
       <div>
         {['3rd', '2nd', '1st'].map((item) => {
           return <Numbers property="column" value={item} key={item}/>
         })}
         
-        <div className="column-line">
+        <div id="column-line">
           {column.map((item) => <OutsideNumbers key={item.id} data={item}/>)}
         </div>
 

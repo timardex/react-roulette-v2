@@ -13,8 +13,10 @@ body {
 
 #roulette-game {
   width: 100%;
+  max-width: 1920px;
   margin: auto;
   font-family: $font1;
+  position: relative;
 }
 
 img {

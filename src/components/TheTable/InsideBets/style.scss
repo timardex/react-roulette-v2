@@ -1,12 +1,12 @@
 @import '../../../assets/styles/variables';
 
-.inside-bets {
+#inside-bets {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 
-  .column-line {
+  #column-line {
     position: absolute !important;
     right: -45px;
     top: 0;

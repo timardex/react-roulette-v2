@@ -1,7 +1,7 @@
 const NO_MORE_BETS = (state) => {
   return {
     ...state,
-    btnText: 'No more bets!',
+    spinBtnText: 'No more bets!',
   };
 };
 

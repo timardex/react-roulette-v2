@@ -10,13 +10,13 @@ import {
   verticalSplits,
   corners,
 } from '../numbers/data';
-import { getNumbersByProperties, replaceChar } from '../../helpers';
+import { getNumbersByProperties, spaceReplace } from '../../helpers';
 
 const setupObject = (property, value) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers);
   return {
-    id: replaceChar(value),
-    name: replaceChar(value),
+    id: spaceReplace(value),
+    name: `${value}`,
     checked: false,
     numbers: numbers.sort((a, b) => a - b),
     className: property,
@@ -51,7 +51,7 @@ const GAME_INITIALIZER = (state) => {
     },
     rotateWheel: 'rotate-right',
     rotateBall: 'd-none',
-    btnText: 'Spin it!',
+    spinBtnText: 'Spin it!',
     outputNumber: null,
     ballIsSpinning: false,
     numbersChecked: [],

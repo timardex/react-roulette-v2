@@ -8,6 +8,7 @@ import GameHeader from './components/GameHeader';
 import TheTable from './components/TheTable';
 import Button from './components/Button';
 import SelectedBets from './components/SelectedBets';
+import GameInfo from './components/GameInfo';
 
 import { gameInitializer } from './store/actions';
 
@@ -25,6 +26,7 @@ const App = () => {
       <Button />
       <SelectedBets insideBet={true}/>
       <SelectedBets insideBet={false}/>
+      <GameInfo />
     </div>
   );
 }
