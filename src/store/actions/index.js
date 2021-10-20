@@ -4,6 +4,7 @@ import setBet from './setBet';
 import noMoreBets from './noMoreBets';
 import removeBets from './removeBets';
 import gameResult from './gameResult';
+import soundToggle from './soundToggle';
 
 export {
   gameInitializer,
@@ -12,4 +13,5 @@ export {
   noMoreBets,
   removeBets,
   gameResult,
+  soundToggle,
 };

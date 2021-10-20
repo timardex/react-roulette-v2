@@ -2,7 +2,10 @@ import { checkNumbers } from '../../helpers';
 import chipEffect from '../../assets/sounds/chip-effect.mp3';
 
 const SET_BET = (state, payload) => {
-  new Audio(chipEffect).play();
+  if(state.enableSounds) {
+    new Audio(chipEffect).play();
+  }
+  
   return {
     ...state,
     numbersList: checkNumbers(state.numbersList, payload),

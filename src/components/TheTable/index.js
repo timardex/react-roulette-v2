@@ -1,6 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { soundToggle } from '../../store/actions';
 
+import soundOn from '../../assets/images/sound-on.png';
+import soundOff from '../../assets/images/sound-off.png';
 import './style.scss';
 
 import WheelStand from './WheelStand';
@@ -9,12 +12,18 @@ import InsideBets from './InsideBets';
 
 
 const TheTable = () => {
+  const dispatch = useDispatch();
+
   const one2one = useSelector(state => state.one2one) || [];
   const dozen = useSelector(state => state.dozen) || [];
   const raceTrack = useSelector(state => state.raceTrack) || [];
+  const enableSounds = useSelector(state => state.enableSounds);
 
   return (
     <div id="the-table">
+      <div id="sound-toggle" onClick={() => dispatch(soundToggle())}>
+        <img src={enableSounds ? soundOn : soundOff} alt="Toggle sound" />
+      </div>
       <WheelStand />
       <div className="the-table-inner">
         <div className="outside-numbers">

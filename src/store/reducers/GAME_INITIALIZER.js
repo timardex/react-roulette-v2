@@ -56,6 +56,7 @@ const GAME_INITIALIZER = (state) => {
     ballIsSpinning: false,
     numbersChecked: [],
     winningNumber: null,
+    enableSounds: true,
   };
 };
 
