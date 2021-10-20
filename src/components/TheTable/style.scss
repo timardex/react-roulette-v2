@@ -12,7 +12,7 @@
   align-items: center;
   margin: 1.5rem auto;
   pointer-events: all;
-  box-shadow: 0 8px 12px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: $boxShadow;
 
   &.disable {
     pointer-events: none;

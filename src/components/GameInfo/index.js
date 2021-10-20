@@ -4,9 +4,21 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 
 const GameInfo = () => {
-  const winningNumber = useSelector(state => state.winningNumber) || null;
-  const numbersList = useSelector(state => state.numbersList) || [];
-  const winner = numbersList.find(item => item.numbers === winningNumber) || {};
+  const winningNumber = useSelector(state => state.winningNumber) || {};
+  const lastNumbers = useSelector(state => state.lastNumbers) || [];
+
+  const getLastNumbers = () => {
+    return(
+      <div>
+        <h4 className="mt-1">Last numbers:</h4>
+        <ul id="last-numbers">
+          {lastNumbers.map((item) => {
+            return <li key={item.name} style={{backgroundColor: item.properties.color}}>{item.name}</li>
+          })}
+        </ul>
+      </div>
+    );
+  };
 
   return(
     <div id="game-info">
@@ -16,9 +28,11 @@ const GameInfo = () => {
           <small>You can place your bets until <span>No more bets</span> is called!</small>
         </h4>
 
-        {Object.keys(winner).length > 0 && <h4 className="text-center winner-info mt-1">
-          Winning number: <span style={{backgroundColor: winner.properties.color}}>{winner.numbers}</span>
+        {Object.keys(winningNumber).length > 0 && <h4 className="text-center winner-info mt-1">
+          Winning number: <span style={{backgroundColor: winningNumber.properties.color}}>{winningNumber.numbers}</span>
         </h4>}
+
+        {lastNumbers.length > 0 && getLastNumbers()}
       </div>
     </div>
   );

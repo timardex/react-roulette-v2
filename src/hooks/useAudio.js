@@ -8,9 +8,10 @@ const useAudio = url => {
   const [audioPlaying, setPlaying] = useState(false);
 
   const audioToggle = () => setPlaying(!audioPlaying);
-
+  
   useEffect(() => {
-    audioPlaying && enableSounds ? audio.play() : audio.pause();
+    audioPlaying ? audio.play() : audio.pause();
+    audio.volume = enableSounds ? 1 : 0;
   }, [audioPlaying, audio, enableSounds]);
 
   useEffect(() => {

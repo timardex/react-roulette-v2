@@ -20,6 +20,7 @@ button {
   line-height: 1.5;
   border-radius: .25rem;
   cursor: pointer;
+  box-shadow: $boxShadow;
   transition: color .15s ease-in-out,
     background-color .15s ease-in-out,
     border-color .15s ease-in-out,
@@ -27,6 +28,11 @@ button {
 
   &:disabled {
     pointer-events: none;
+    background-color: $color5;
+  }
+
+  &:hover {
+    background-color: $color5;
   }
 
   span {

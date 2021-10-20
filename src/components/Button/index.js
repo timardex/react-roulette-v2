@@ -28,7 +28,7 @@ const Button = () => {
       dispatch(noMoreBets());
     }
 
-    if(!audioPlaying) {
+    if(!audioPlaying && timeLeft === 0) {
       dispatch(gameResult());
       setTimeLeft(null);
     }

@@ -46,3 +46,18 @@
     }
   }
 }
+
+#last-numbers {
+  list-style: none;
+
+  li {
+    width: 29px;
+    height: 29px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 3px;
+    font-weight: 700;
+  }
+}
