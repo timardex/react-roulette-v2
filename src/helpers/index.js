@@ -35,3 +35,9 @@ export const checkNumbers = (number, payload) => {
 export const removeNumbers = (array) => {
   return array.map(value => value.checked ? {...value, checked: false} : value)
 };
+
+export const keepWinningBets = (array, winningNumber) => {
+  const winnerObj = array.filter(item => item.checked).filter(item => item.numbers.includes(winningNumber.numbers[0])) || [];
+  const result = array.map((item) => ({...item, checked: winnerObj.some(el => el.name === item.name)}));
+  return result;
+};

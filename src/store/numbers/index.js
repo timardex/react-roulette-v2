@@ -37,7 +37,7 @@ const numbersList = allNumbers.map((number, index) => {
   return {
     id: `${number}`,
     name: `${number}`,
-    numbers: number,
+    numbers: [number],
     checked: false,
     insideBet: true,
     properties: {
@@ -56,5 +56,5 @@ const numbersList = allNumbers.map((number, index) => {
     },
   };
 });
-console.log(numbersList)
+
 export default numbersList;

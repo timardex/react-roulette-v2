@@ -56,7 +56,7 @@ export const raceTrack = removeDubs(setupRaceTrack);
 const streetSetup = numbersList.map((item) => {
   const property = 'street';
   const value = item.properties.street.length ? item.properties.street.find((el) => {
-    return el.numbers.includes(item.numbers);
+    return el.numbers.includes(item.numbers[0]);
   }).name : null;
   return { property, value };
 }).filter(item => item.value !== null);
@@ -67,7 +67,7 @@ export const street = removeDubs(streetSetup);
 const sixLineSetup = numbersList.map((item) => {
   const property = 'sixline';
   const value = item.properties.sixline.find((el) => {
-    return el.numbers.includes(item.numbers);
+    return el.numbers.includes(item.numbers[0]);
   }).name;
   
   return { property, value };

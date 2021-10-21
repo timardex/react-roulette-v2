@@ -13,7 +13,7 @@ import {
 import { getNumbersByProperties, spaceReplace } from '../../helpers';
 
 const setupObject = (property, value) => {
-  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers);
+  const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers[0]);
   return {
     id: spaceReplace(value),
     name: `${value}`,

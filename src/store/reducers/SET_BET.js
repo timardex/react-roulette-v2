@@ -31,9 +31,7 @@ const SET_BET = (state, payload) => {
 
     numbersChecked: payload.checked
       ? state.numbersChecked.concat(payload)
-      : state.numbersChecked.filter((item) => {
-        return item.name !== payload.name;
-      }),
+      : state.numbersChecked.filter(item => item.name !== payload.name),
   };
 };
 
