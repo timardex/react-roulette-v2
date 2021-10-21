@@ -57,7 +57,7 @@ const GAME_INITIALIZER = (state) => {
     numbersChecked: [],
     lastNumbers: [],
     winningNumber: null,
-    currentChip: 69,
+    currentChip: 20,
     enableSounds: false,
   };
 };

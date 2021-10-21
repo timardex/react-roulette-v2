@@ -32,6 +32,7 @@ const SET_BET = (state, payload) => {
     numbersChecked: payload.checked
       ? state.numbersChecked.concat(payload)
       : state.numbersChecked.filter(item => item.name !== payload.name),
+    currentChip: payload.checked ? state.currentChip -1 : state.currentChip +1,
   };
 };
 

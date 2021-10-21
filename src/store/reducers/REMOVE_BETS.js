@@ -24,6 +24,7 @@ const REMOVE_BETS = (state) => {
       corner1: removeNumbers(state.corners.corner1),
       corner2: removeNumbers(state.corners.corner2),
     },
+    currentChip: state.currentChip + state.numbersChecked.length
   };
 };
 
