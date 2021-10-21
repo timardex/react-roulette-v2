@@ -14,14 +14,14 @@ import { gameInitializer } from './store/actions';
 
 const App = () => {
   const dispatch = useDispatch();
-  const detectDevice = useDetectDevice();
+  const [checkDesktop] = useDetectDevice();
   
   useEffect(() => {
     dispatch(gameInitializer());
   });
 
   const renderContent = () => {
-    if(detectDevice.isDesktop()) {
+    if(checkDesktop) {
       return(
         <div>
           <GameHeader />
