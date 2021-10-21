@@ -39,11 +39,6 @@
       align-items: center;
       position: relative;
       font-weight: 700;
-
-      @media(max-width: 992px) {
-        width: 14px;
-        height: 14px;
-      }
     }
   }
 
@@ -61,29 +56,16 @@
         width: 1px;
         height: 206%;
         left: 13px;
-
-        @media(max-width: 992px) {
-          left: 11px;
-          height: 216%;
-        }
       }
 
       &:before {
         top: -45px;
         transform: rotate(40deg);
-
-        @media(max-width: 992px) {
-          top: -34px;
-        }
       }
 
       &:after {
         bottom: -45px;
         transform: rotate(-40deg);
-
-        @media(max-width: 992px) {
-          bottom: -34px;
-        }
       }
 
       label {

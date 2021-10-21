@@ -7,10 +7,6 @@
   position: relative;
   width: 350px;
 
-  @media(max-width: 768px) {
-    margin: 0 auto 1rem;
-  }
-
   .r-wheel {
     width: $wheelSize;
     height: $wheelSize;

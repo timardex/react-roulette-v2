@@ -10,10 +10,10 @@ const GameInfo = () => {
   const getLastNumbers = () => {
     return(
       <div>
-        <h4 className="mt-1">Last numbers:</h4>
+        <h4 className="text-center mt-1">Last numbers:</h4>
         <ul id="last-numbers">
-          {lastNumbers.map((item) => {
-            return <li key={item.name} style={{backgroundColor: item.properties.color}}>{item.name}</li>
+          {lastNumbers.map((item, index) => {
+            return <li key={index} style={{backgroundColor: item.properties.color}}>{item.name}</li>
           })}
         </ul>
       </div>
@@ -23,10 +23,10 @@ const GameInfo = () => {
   return(
     <div id="game-info">
       <div className="info">
-        <h4 className="text-center title">
+        <h3 className="text-center title">
           Place your bets please!
           <small>You can place your bets until <span>No more bets</span> is called!</small>
-        </h4>
+        </h3>
 
         {Object.keys(winningNumber).length > 0 && <h4 className="text-center winner-info mt-1">
           Winning number: <span style={{backgroundColor: winningNumber.properties.color}}>{winningNumber.numbers}</span>

@@ -1,8 +1,7 @@
 @import '../../assets/styles/variables';
 
 #the-table {
-  width: 100%;
-  max-width: $tableWidth;
+  width: $tableWidth;
   background: $tableColor2;
   padding: 25px 0;
   border-radius: 1rem;
@@ -18,21 +17,9 @@
     pointer-events: none;
   }
 
-  @media(max-width: 768px) {
-    display: block;
-  }
-
   .the-table-inner {
     position: relative;
     max-width: 481px;
-
-    @media(max-width: 992px) {
-      max-width: 365px;
-    }
-
-    @media(max-width: 768px) {
-      left: -3%;
-    }
 
     .no-more-bets-overlay {
       position: absolute;
@@ -51,10 +38,6 @@
       visibility: hidden;
       text-shadow: 1px 1px 5px #000;
 
-      @media(max-width: 992px) {
-        left: 30px;
-      }
-
       &.disabled {
         opacity: 1;
         visibility: visible;
@@ -70,17 +53,11 @@
     margin: 2px 0;
     display: flex;
     justify-content: space-evenly;
-
-    @media(max-width: 992px) {
-      width: 334px;
-      font-size: .8rem;
-      left: 29px;
-    }
   }
 
   .chip,
   .dolly {
-    position: absolute !important;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -113,11 +90,6 @@
       border-radius: 50%;
       background: $color5;
       position: absolute;
-    }
-
-    @media(max-width: 992px) {
-      width: 15px;
-      height: 15px;
     }
   }
 
