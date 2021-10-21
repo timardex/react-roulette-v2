@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getNumbersByProperties } from '../../../helpers';
 import { setBet } from '../../../store/actions';
 
+import chip from '../../../assets/images/chip.png';
 import './style.scss';
 
 const Numbers = (props) => {
@@ -32,7 +33,7 @@ const Numbers = (props) => {
 
               <span className="number-name" style={{color: value.properties.color}}>{value.name}</span>
 
-              {value.checked && <span className="chip"></span>}
+              {value.checked && <img className="chip" src={chip} alt="Chip"/>}
               {winningNumber.numbers === value.numbers && <span className="dolly"></span>}
             </label>
           </div>

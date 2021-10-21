@@ -1,0 +1,30 @@
+#chip-container {
+  position: relative;
+  text-align: center;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .current-chip {
+    position: relative;
+    height: 50px;
+    width: 30px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    span {
+      position: absolute;
+      top: -22px;
+      font-weight: bold;
+    }
+
+    .chip {
+      width: 30px;
+      position: absolute;
+      left: 0;
+    }
+  }
+}

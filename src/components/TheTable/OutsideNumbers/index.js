@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { setBet } from '../../../store/actions';
 
+import chip from '../../../assets/images/chip.png';
 import './style.scss';
 
 const OutsideNumbers = (props) => {
@@ -24,7 +25,7 @@ const OutsideNumbers = (props) => {
             value={data.id}
             onChange={() => setSelectedBet(data)}/>
           <span className="number-name">{data.name}</span>
-          {data.checked && <span className="chip"></span>}
+          {data.checked && <img className="chip" src={chip} alt="Chip"/>}
         </label>
       </div>
     </div>

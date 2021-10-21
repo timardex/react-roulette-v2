@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { setBet } from '../../../store/actions';
 
+import chip from '../../../assets/images/chip.png';
 import './style.scss';
 
 const LineBets = (props) => {
@@ -27,7 +28,7 @@ const LineBets = (props) => {
             value={data.id}
             onChange={() => setSelectedBet(data)}/>
 
-          {data.checked && <span className="chip"></span>}
+          {data.checked && <img className="chip" src={chip} alt="Chip"/>}
         </label>
       </div>
     </div>
