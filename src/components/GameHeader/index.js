@@ -6,7 +6,7 @@ import './style.scss';
 
 const GameHeader = () => {
   const currentChip = useSelector(state => state.currentChip) || null;
-  const chips = [...Array(currentChip).keys()];
+  const chips = Array.from({length: currentChip}, (_, i) => i + 1);
 
   const chipsArray = chips.map((item, index) => {
     return index % 20 === 0 ? chips.slice(index, index + 20) : null
@@ -24,7 +24,7 @@ const GameHeader = () => {
           return <div className="current-chip" key={index}>
             <span>{chip.length}</span>
             {chip.map((item, itemIndex) => {
-              return <img key={item} className="chip" src={chipImg} alt="Chip" style={{bottom: itemIndex * 2}}/>
+              return <img key={item} className={`chip ${item}`} src={chipImg} alt="Chip" style={{bottom: itemIndex * 2}}/>
             })}
           </div>
         })}
