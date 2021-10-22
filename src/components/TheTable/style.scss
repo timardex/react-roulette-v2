@@ -72,7 +72,6 @@
     justify-content: center;
     align-items: center;
     
-
     img {
       position: absolute;
       z-index: 0;
@@ -95,6 +94,7 @@
     border-top-right-radius: 5px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
+    z-index: 2;
 
     &:before {
       content: '';

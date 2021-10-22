@@ -38,7 +38,13 @@ export const removeNumbers = (array) => {
 };
 
 export const keepWinningBets = (array, winningNumber) => {
-  const winnerObj = array.filter(item => item.checked).filter(item => item.numbers.includes(winningNumber.numbers[0])) || [];
-  const result = array.map((item) => ({...item, checked: winnerObj.some(el => el.name === item.name)}));
+  const winner = array.filter(item => item.chipCount > 0).filter(item => item.numbers.includes(winningNumber.numbers[0])) || [];
+  const result = array.map((item) => {
+    const condition = winner.some(el => el.name === item.name);
+    return {
+      ...item,
+      chipCount: condition ? winner.find(el => el.name === item.name).chipCount : 0
+    }
+  });
   return result;
 };
