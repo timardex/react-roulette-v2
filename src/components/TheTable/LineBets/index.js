@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setBet } from '../../../store/actions';
 
+import DeleteBet from '../../DeleteBet';
+
 import chip from '../../../assets/images/chip.png';
 import './style.scss';
 
@@ -36,6 +38,8 @@ const LineBets = (props) => {
             <img src={chip} alt="Chip"/>
           </div>}
         </label>
+
+        {data.chipCount > 0 && <DeleteBet value={data}/>}
       </div>
     </div>
   );

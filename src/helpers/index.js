@@ -48,3 +48,9 @@ export const keepWinningBets = (array, winningNumber) => {
   });
   return result;
 };
+
+export const deleteBet = (array, payload) => {
+  return array.map((item) => {
+    return {...item, chipCount: item.name === payload.name ? 0 : item.chipCount}
+  });
+};

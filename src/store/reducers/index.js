@@ -5,6 +5,7 @@ import NO_MORE_BETS from './NO_MORE_BETS';
 import REMOVE_BETS from './REMOVE_BETS';
 import GAME_RESULT from './GAME_RESULT';
 import SOUND_TOGGLE from './SOUND_TOGGLE';
+import DELETE_BET from './DELETE_BET';
 
 const reducers = (state = {}, action) => {
   switch(action.type) {
@@ -22,6 +23,8 @@ const reducers = (state = {}, action) => {
       return GAME_RESULT(state);
     case 'SOUND_TOGGLE':
       return SOUND_TOGGLE(state);
+    case 'DELETE_BET':
+      return DELETE_BET(state, action.payload);
     default:
       return state;
   };

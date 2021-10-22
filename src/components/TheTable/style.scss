@@ -85,6 +85,43 @@
     }
   }
 
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      .remove-bet {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .remove-bet {
+      position: absolute;
+      top: -25px;
+      margin: auto;
+      height: 34px;
+      width: 34px;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+
+      small {
+        background: #000;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
   .dolly {
     top: -15px;
     width: 10px !important;
