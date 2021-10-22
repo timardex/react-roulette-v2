@@ -24,16 +24,17 @@ export const removeDubs = (array) => {
 };
 
 export const checkNumbers = (number, payload) => {
-  return (number.map(value => value.id === payload.id ?
-      // transform the one with a matching id
-      { ...value, checked: value.checked = !payload.checked } : 
-      // otherwise return original value
+  const result = number.map(value => value.id === payload.id ?
+      { ...value,
+        chipCount: value.chipCount = payload.chipCount+1,
+      } :
       value
-  ));
+  );
+  return result;
 };
 
 export const removeNumbers = (array) => {
-  return array.map(value => value.checked ? {...value, checked: false} : value)
+  return array.map(value => value.chipCount > 0 ? {...value, chipCount: 0} : value)
 };
 
 export const keepWinningBets = (array, winningNumber) => {

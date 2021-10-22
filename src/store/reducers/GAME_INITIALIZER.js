@@ -17,10 +17,10 @@ const setupObject = (property, value) => {
   return {
     id: spaceReplace(value),
     name: `${value}`,
-    checked: false,
     numbers: numbers.sort((a, b) => a - b),
     className: property,
-    insideBet: false
+    insideBet: false,
+    chipCount: 0,
   }
 };
 
@@ -57,7 +57,7 @@ const GAME_INITIALIZER = (state) => {
     numbersChecked: [],
     lastNumbers: [],
     winningNumber: null,
-    currentChip: 20,
+    currentChip: 25,
     enableSounds: false,
   };
 };

@@ -66,8 +66,24 @@
   }
 
   .chip {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    img {
+      position: absolute;
+      z-index: 0;
+    }
+    span {
+      position: relative;
+      z-index: 1;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #fff;
+    }
   }
 
   .dolly {

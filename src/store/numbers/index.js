@@ -38,8 +38,8 @@ const numbersList = allNumbers.map((number, index) => {
     id: `${number}`,
     name: `${number}`,
     numbers: [number],
-    checked: false,
     insideBet: true,
+    chipCount: 0,
     properties: {
       highLow: highLow(number),
       evenOdd: evenOdd(number, index),

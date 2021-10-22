@@ -5,7 +5,7 @@ const SET_BET = (state, payload) => {
   if(state.enableSounds) {
     new Audio(chipEffect).play();
   }
-  
+
   return {
     ...state,
     numbersList: checkNumbers(state.numbersList, payload),
@@ -28,11 +28,8 @@ const SET_BET = (state, payload) => {
       corner1: checkNumbers(state.corners.corner1, payload),
       corner2: checkNumbers(state.corners.corner2, payload),
     },
-
-    numbersChecked: payload.checked
-      ? state.numbersChecked.concat(payload)
-      : state.numbersChecked.filter(item => item.name !== payload.name),
-    currentChip: payload.checked ? state.currentChip -1 : state.currentChip +1,
+    numbersChecked: state.numbersChecked.concat(payload),
+    currentChip: state.currentChip -1,
   };
 };
 

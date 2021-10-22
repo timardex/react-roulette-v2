@@ -3,7 +3,6 @@ import { removeNumbers } from '../../helpers';
 const REMOVE_BETS = (state) => {
   return {
     ...state,
-    numbersChecked: [],
     numbersList: removeNumbers(state.numbersList),
     raceTrack: removeNumbers(state.raceTrack),
     one2one: removeNumbers(state.one2one),
@@ -24,7 +23,8 @@ const REMOVE_BETS = (state) => {
       corner1: removeNumbers(state.corners.corner1),
       corner2: removeNumbers(state.corners.corner2),
     },
-    currentChip: state.currentChip + state.numbersChecked.length
+    currentChip: state.currentChip + state.numbersChecked.length,
+    numbersChecked: [],
   };
 };
 
