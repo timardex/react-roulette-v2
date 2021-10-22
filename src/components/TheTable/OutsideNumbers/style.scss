@@ -53,10 +53,10 @@
     }
 
     label[for="red"] span {
-      color: $color4;
+      color: $color4 !important;
     }
     label[for="black"] span {
-      color: $color5;
+      color: $color5 !important;
     }
 
     input {
