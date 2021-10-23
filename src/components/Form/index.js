@@ -4,6 +4,8 @@ import { setBet, deleteBet } from "../../store/actions";
 
 import chip from '../../assets/images/chip.png';
 
+import './style.scss';
+
 const Form = (props) => {
   const { value, showName } = props;
 
