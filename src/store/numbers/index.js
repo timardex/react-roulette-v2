@@ -40,6 +40,7 @@ const numbersList = allNumbers.map((number, index) => {
     numbers: [number],
     insideBet: true,
     chipCount: 0,
+    winingOdd: 35,
     properties: {
       highLow: highLow(number),
       evenOdd: evenOdd(number, index),

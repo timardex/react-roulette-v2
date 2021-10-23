@@ -1,15 +1,15 @@
 import { keepWinningBets } from '../../helpers';
 
 const GAME_RESULT = (state) => {
-  const generatedNumber = Math.floor((Math.random() * 6) + 0);
+  const generatedNumber = Math.floor((Math.random() * 1) + 0);
   const winningNumber = state.numbersList.find(item => item.numbers.includes(generatedNumber));
 
   const getWiningChips = () => {
     const chips = state.numbersChecked.filter((item) => {
-      return item.chipCount > 0 && item.numbers.includes(winningNumber.numbers[0])
+      return item.chipCount > 0 && item.numbers.includes(generatedNumber)
     }).sort((a, b) => a.chipCount > b.chipCount ? -1 : 1)
     .filter((v,i,a)=> a.findIndex(t => (t.name === v.name)) === i)
-    .map(item => item.chipCount).reduce((a, b) => a + b);
+    .map(item => item.chipCount * item.winingOdd).reduce((a, b) => a + b);
     return chips;
   };
 

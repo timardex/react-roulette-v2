@@ -12,7 +12,7 @@ import {
 } from '../numbers/data';
 import { getNumbersByProperties, spaceReplace } from '../../helpers';
 
-const setupObject = (property, value) => {
+const setupObject = (property, value, winingOdd) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers[0]);
   return {
     id: spaceReplace(value),
@@ -21,10 +21,11 @@ const setupObject = (property, value) => {
     className: property,
     insideBet: false,
     chipCount: 0,
-  }
+    winingOdd,
+  };
 };
 
-const setupState = array => array.map(item => setupObject(item.property, item.value));
+const setupState = array => array.map(item => setupObject(item.property, item.value, item.winingOdd));
 
 const GAME_INITIALIZER = (state) => {
   return {

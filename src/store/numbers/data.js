@@ -27,12 +27,17 @@ export const one2one = [
     property: 'highLow',
     value: 'high',
   },
-];
+].map((item) => {
+  const { property, value } = item;
+  const winingOdd = 1;
+  return { property, value, winingOdd };
+});
 
 const setupDozen = numbersList.map((item) => {
   const property = 'dozen';
   const value = item.properties.dozen;
-  return { property, value };
+  const winingOdd = 2;
+  return { property, value, winingOdd };
 }).filter(item => item.value !== 'neutral');
 
 export const dozen = removeDubs(setupDozen);
@@ -40,15 +45,17 @@ export const dozen = removeDubs(setupDozen);
 const setupColumn = numbersList.map((item) => {
   const property = 'column';
   const value = item.properties.column;
-  return { property, value };
+  const winingOdd = 2;
+  return { property, value, winingOdd };
 }).filter(item => item.value !== 'neutral').sort((a, b) => a.value < b.value ? 1 : -1);
 
 export const column = removeDubs(setupColumn);
 
 const setupRaceTrack = numbersList.map((item) => {
   const property = 'raceTrack';
-  const value = item.properties.raceTrack[0]
-  return { property, value };
+  const value = item.properties.raceTrack[0];
+  const winingOdd = 3;
+  return { property, value, winingOdd };
 });
 
 export const raceTrack = removeDubs(setupRaceTrack);
@@ -58,8 +65,9 @@ const streetSetup = numbersList.map((item) => {
   const value = item.properties.street.length ? item.properties.street.find((el) => {
     return el.numbers.includes(item.numbers[0]);
   }).name : null;
-  return { property, value };
-}).filter(item => item.value !== null);
+  const winingOdd = 4;
+  return { property, value, winingOdd };
+}).filter(item => item.value);
 
 
 export const street = removeDubs(streetSetup);
@@ -69,15 +77,15 @@ const sixLineSetup = numbersList.map((item) => {
   const value = item.properties.sixline.find((el) => {
     return el.numbers.includes(item.numbers[0]);
   }).name;
-  
-  return { property, value };
+  const winingOdd = 6;
+  return { property, value, winingOdd };
 });
 
 export const sixLine = removeDubs(sixLineSetup);
 
 const horizontalSplitsByColumn = (array) => {
-  const horizontalSplitSetup = numbersList.map((item, index) => index !== 0 ? item.properties.horizontalSplit : '')
-    .filter(item => item !== '').reduce((a, b) => a.concat(b));
+  const horizontalSplitSetup = numbersList.map((item, index) => index !== 0 ? item.properties.horizontalSplit : null)
+    .filter(item => item).reduce((a, b) => a.concat(b));
 
   const result = removeDubs(horizontalSplitSetup).map((col) => {
     const arrayHasNumbers = col.numbers.map((number) => {
@@ -85,8 +93,10 @@ const horizontalSplitsByColumn = (array) => {
     }).includes(true);
     const property = 'horizontalSplit';
     const value = col.name;
-    return arrayHasNumbers ? { property, value } : '';
-  }).filter(item => item !== '');
+    const winingOdd = 17;
+
+    return arrayHasNumbers ? { property, value, winingOdd } : null;
+  }).filter(item => item);
 
   return result;
 };
@@ -103,7 +113,9 @@ const verticalSplitSetup = removeDubs(
 ).map((item) => {
   const property = 'verticalSplit';
   const value = item.name;
-  return { property, value };
+  const winingOdd = 17;
+
+  return { property, value, winingOdd };
 });
 
 export const verticalSplits = {
@@ -115,8 +127,9 @@ const setupCorner = numbersList.map((item) => {
   return item.properties.corner.map((el) => {
     const property = 'corner';
     const value = el.name;
+    const winingOdd = 17;
 
-    return { property, value };
+    return { property, value, winingOdd };
   });
 }).reduce((a, b) => a.concat(b));
 
