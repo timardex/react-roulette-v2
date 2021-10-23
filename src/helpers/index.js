@@ -54,3 +54,7 @@ export const deleteBet = (array, payload) => {
     return {...item, chipCount: item.name === payload.name ? 0 : item.chipCount}
   });
 };
+
+export const previouseBet = (number_checked, column_number) => {
+  return column_number.map(value => number_checked.includes(value.numbers) ? {...value, checked: true} : value)
+}

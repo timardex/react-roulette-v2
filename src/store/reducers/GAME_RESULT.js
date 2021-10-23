@@ -1,19 +1,21 @@
 import { keepWinningBets } from '../../helpers';
 
 const GAME_RESULT = (state) => {
-  const generatedNumber = Math.floor((Math.random() * 1) + 0);
+  const generatedNumber = Math.floor((Math.random() * 36) + 0);
   const winningNumber = state.numbersList.find(item => item.numbers.includes(generatedNumber));
 
-  const getWiningChips = () => {
-    const chips = state.numbersChecked.filter((item) => {
+  const getWiners = () => {
+    const numbers = state.numbersChecked.filter((item) => {
       return item.chipCount > 0 && item.numbers.includes(generatedNumber)
     }).sort((a, b) => a.chipCount > b.chipCount ? -1 : 1)
-    .filter((v,i,a)=> a.findIndex(t => (t.name === v.name)) === i)
-    .map(item => item.chipCount * item.winingOdd).reduce((a, b) => a + b);
-    return chips;
-  };
+    .filter((v,i,a)=> a.findIndex(t => (t.name === v.name)) === i);
 
-  console.log(getWiningChips())
+    const chips = numbers.map(item => item.chipCount * item.winingOdd).reduce((a, b) => (a + b), 0);
+
+    return { numbers, chips };
+  };
+  
+  console.log(state.winners)
 
   return {
     ...state,
@@ -42,7 +44,8 @@ const GAME_RESULT = (state) => {
     winningNumber,
     numbersChecked: state.numbersChecked.filter((item) => item.numbers.includes(winningNumber.numbers[0])),
     lastNumbers: state.lastNumbers.concat(winningNumber),
-    currentChip: state.currentChip + getWiningChips()
+    winners: getWiners(),
+    currentChip: state.currentChip + getWiners().chips
   };
 };
 
