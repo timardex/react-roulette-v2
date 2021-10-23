@@ -4,6 +4,17 @@ const GAME_RESULT = (state) => {
   const generatedNumber = Math.floor((Math.random() * 6) + 0);
   const winningNumber = state.numbersList.find(item => item.numbers.includes(generatedNumber));
 
+  const getWiningChips = () => {
+    const chips = state.numbersChecked.filter((item) => {
+      return item.chipCount > 0 && item.numbers.includes(winningNumber.numbers[0])
+    }).sort((a, b) => a.chipCount > b.chipCount ? -1 : 1)
+    .filter((v,i,a)=> a.findIndex(t => (t.name === v.name)) === i)
+    .map(item => item.chipCount).reduce((a, b) => a + b);
+    return chips;
+  };
+
+  console.log(getWiningChips())
+
   return {
     ...state,
     numbersList: keepWinningBets(state.numbersList, winningNumber),
@@ -26,11 +37,12 @@ const GAME_RESULT = (state) => {
       corner1: keepWinningBets(state.corners.corner1, winningNumber),
       corner2: keepWinningBets(state.corners.corner2, winningNumber),
     },
-    numbersChecked: state.numbersChecked.filter((item) => item.numbers.includes(winningNumber.numbers[0])),
     spinBtnText: 'Spin it!',
     rotateBall: 'd-none',
     winningNumber,
+    numbersChecked: state.numbersChecked.filter((item) => item.numbers.includes(winningNumber.numbers[0])),
     lastNumbers: state.lastNumbers.concat(winningNumber),
+    currentChip: state.currentChip + getWiningChips()
   };
 };
 

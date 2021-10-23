@@ -20,18 +20,22 @@ const Button = () => {
   const startGame = () => {
     dispatch(spinBall());
     audioToggle();
-    setTimeLeft(10);
+    setTimeLeft(1);
   };
 
   useEffect(() => {
     if(timeLeft === 0) {
       dispatch(noMoreBets());
-    }
 
-    if(!audioPlaying && timeLeft === 0) {
+      /* remove when game is developed */
       dispatch(gameResult());
       setTimeLeft(null);
     }
+
+    /* if(!audioPlaying && timeLeft === 0) {
+      dispatch(gameResult());
+      setTimeLeft(null);
+    } */
   }, [timeLeft, audioPlaying, dispatch, setTimeLeft]);
 
   return(

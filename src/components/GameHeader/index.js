@@ -7,7 +7,7 @@ import './style.scss';
 const GameHeader = () => {
   const currentChip = useSelector(state => state.currentChip) || null;
   const chips = Array.from({length: currentChip}, (_, i) => i + 1);
-
+  
   const chipsArray = chips.map((item, index) => {
     return index % 20 === 0 ? chips.slice(index, index + 20) : null
   }).filter(el => el);

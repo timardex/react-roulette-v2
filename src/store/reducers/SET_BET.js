@@ -1,4 +1,4 @@
-import { checkNumbers } from '../../helpers';
+import { setbet } from '../../helpers';
 import chipEffect from '../../assets/sounds/chip-effect.mp3';
 
 const SET_BET = (state, payload) => {
@@ -8,25 +8,25 @@ const SET_BET = (state, payload) => {
 
   return {
     ...state,
-    numbersList: checkNumbers(state.numbersList, payload),
-    raceTrack: checkNumbers(state.raceTrack, payload),
-    one2one: checkNumbers(state.one2one, payload),
-    dozen: checkNumbers(state.dozen, payload),
-    column: checkNumbers(state.column, payload),
-    street: checkNumbers(state.street, payload),
-    sixLine: checkNumbers(state.sixLine, payload),
+    numbersList: setbet(state.numbersList, payload),
+    raceTrack: setbet(state.raceTrack, payload),
+    one2one: setbet(state.one2one, payload),
+    dozen: setbet(state.dozen, payload),
+    column: setbet(state.column, payload),
+    street: setbet(state.street, payload),
+    sixLine: setbet(state.sixLine, payload),
     horizontalSplits: {
-      split3: checkNumbers(state.horizontalSplits.split3, payload),
-      split2: checkNumbers(state.horizontalSplits.split2, payload),
-      split1: checkNumbers(state.horizontalSplits.split1, payload),
+      split3: setbet(state.horizontalSplits.split3, payload),
+      split2: setbet(state.horizontalSplits.split2, payload),
+      split1: setbet(state.horizontalSplits.split1, payload),
     },
     verticalSplits: {
-      split4: checkNumbers(state.verticalSplits.split4, payload),
-      split5: checkNumbers(state.verticalSplits.split5, payload),
+      split4: setbet(state.verticalSplits.split4, payload),
+      split5: setbet(state.verticalSplits.split5, payload),
     },
     corners: {
-      corner1: checkNumbers(state.corners.corner1, payload),
-      corner2: checkNumbers(state.corners.corner2, payload),
+      corner1: setbet(state.corners.corner1, payload),
+      corner2: setbet(state.corners.corner2, payload),
     },
     numbersChecked: state.numbersChecked.concat(payload),
     currentChip: state.currentChip -1,

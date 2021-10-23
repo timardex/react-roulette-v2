@@ -23,7 +23,7 @@ export const removeDubs = (array) => {
   return Array.from(new Set(array.map(JSON.stringify))).map(JSON.parse);
 };
 
-export const checkNumbers = (number, payload) => {
+export const setbet = (number, payload) => {
   const result = number.map(value => value.id === payload.id ?
       { ...value,
         chipCount: value.chipCount = payload.chipCount+1,

@@ -29,7 +29,7 @@ const App = () => {
           <Button />
           <SelectedBets insideBet={true}/>
           <SelectedBets insideBet={false}/>
-          <GameInfo />
+          {/* <GameInfo /> */}
         </div>
       )
     }
