@@ -23,8 +23,8 @@ export const removeDubs = (array) => {
   return Array.from(new Set(array.map(JSON.stringify))).map(JSON.parse);
 };
 
-export const setbet = (number, payload) => {
-  const result = number.map(value => value.id === payload.id ?
+export const setbet = (array, payload) => {
+  const result = array.map(value => value.id === payload.id ?
       { ...value,
         chipCount: value.chipCount = payload.chipCount+1,
       } :
@@ -55,6 +55,11 @@ export const deleteBet = (array, payload) => {
   });
 };
 
-export const previouseBet = (number_checked, column_number) => {
-  return column_number.map(value => number_checked.includes(value.numbers) ? {...value, checked: true} : value)
-}
+export const previousBet = (array, prevBets) => {
+  const result = array.map((item) => {
+    const condition = prevBets.some(el => el.name === item.name);
+    const prev = condition ? prevBets.find(el => el.name === item.name) : 0;
+    return condition ? { ...prev } : item;
+  });
+  return result;
+};

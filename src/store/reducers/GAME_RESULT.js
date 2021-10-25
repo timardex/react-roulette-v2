@@ -3,6 +3,7 @@ import { keepWinningBets } from '../../helpers';
 const GAME_RESULT = (state) => {
   const generatedNumber = Math.floor((Math.random() * 36) + 0);
   const winningNumber = state.numbersList.find(item => item.numbers.includes(generatedNumber));
+  const previousBets = JSON.parse(window.localStorage.getItem('previousBets'));
 
   const getWiners = () => {
     const numbers = state.numbersChecked.filter((item) => {
@@ -14,8 +15,6 @@ const GAME_RESULT = (state) => {
 
     return { numbers, chips };
   };
-  
-  console.log(state.winners)
 
   return {
     ...state,
@@ -45,6 +44,7 @@ const GAME_RESULT = (state) => {
     numbersChecked: state.numbersChecked.filter((item) => item.numbers.includes(winningNumber.numbers[0])),
     lastNumbers: state.lastNumbers.concat(winningNumber),
     winners: getWiners(),
+    previousBets: previousBets,
     currentChip: state.currentChip + getWiners().chips
   };
 };

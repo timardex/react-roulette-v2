@@ -6,6 +6,7 @@ import removeBets from './removeBets';
 import gameResult from './gameResult';
 import soundToggle from './soundToggle';
 import deleteBet from './deleteBet';
+import previousBet from './previousBet';
 
 export {
   gameInitializer,
@@ -16,4 +17,5 @@ export {
   gameResult,
   soundToggle,
   deleteBet,
+  previousBet,
 };

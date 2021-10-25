@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useCountdownTimer from '../../hooks/useCountdownTimer';
 import ballEffect from '../../assets/sounds/ball-effect.mp3';
 import useAudio from '../../hooks/useAudio';
-import { spinBall, noMoreBets, removeBets, gameResult } from '../../store/actions';
+import { spinBall, noMoreBets, removeBets, gameResult, previousBet } from '../../store/actions';
 
 import './style.scss';
 
@@ -13,6 +13,8 @@ const Button = () => {
 
   const numbersChecked = useSelector(state => state.numbersChecked) || [];
   const spinBtnText = useSelector(state => state.spinBtnText) || '';
+  const previousBets = useSelector(state => state.previousBets) || [];
+  const currentChip = useSelector(state => state.currentChip) || null;
 
   const [audioPlaying, audioToggle] = useAudio(ballEffect);
   const [timeLeft, setTimeLeft] = useCountdownTimer(null);
@@ -20,26 +22,24 @@ const Button = () => {
   const startGame = () => {
     dispatch(spinBall());
     audioToggle();
-    setTimeLeft(1);
+    setTimeLeft(11);
   };
 
   useEffect(() => {
     if(timeLeft === 0) {
       dispatch(noMoreBets());
+    }
 
-      /* remove when game is developed */
+    if(!audioPlaying && timeLeft === 0) {
       dispatch(gameResult());
       setTimeLeft(null);
     }
-
-    /* if(!audioPlaying && timeLeft === 0) {
-      dispatch(gameResult());
-      setTimeLeft(null);
-    } */
   }, [timeLeft, audioPlaying, dispatch, setTimeLeft]);
 
   return(
     <div className="text-center mb-1">
+      {previousBets.length > 0 && currentChip > 0 && <button onClick={() => dispatch(previousBet())} type="button">Previous bets</button>}
+
       {numbersChecked.length > 0 && <button onClick={() => dispatch(removeBets())} type="button" disabled={timeLeft === 0}>
         {timeLeft === 0 ? 'Bets accepted' : 'Remove bets'}
       </button>}

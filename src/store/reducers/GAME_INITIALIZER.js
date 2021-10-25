@@ -59,6 +59,7 @@ const GAME_INITIALIZER = (state) => {
     lastNumbers: [],
     winningNumber: null,
     winners: null,
+    previousBets: [],
     currentChip: 20,
     enableSounds: false,
   };
