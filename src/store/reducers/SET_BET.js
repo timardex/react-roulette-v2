@@ -28,7 +28,7 @@ const SET_BET = (state, payload) => {
       corner1: setbet(state.corners.corner1, payload),
       corner2: setbet(state.corners.corner2, payload),
     },
-    numbersChecked: state.numbersChecked.concat(payload),
+    numbersChecked: [...state.numbersChecked, payload],
     currentChip: state.currentChip -1,
   };
 };

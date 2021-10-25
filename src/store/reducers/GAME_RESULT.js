@@ -42,7 +42,7 @@ const GAME_RESULT = (state) => {
     rotateBall: 'd-none',
     winningNumber,
     numbersChecked: state.numbersChecked.filter((item) => item.numbers.includes(winningNumber.numbers[0])),
-    lastNumbers: state.lastNumbers.concat(winningNumber),
+    lastNumbers: [winningNumber, ...state.lastNumbers],
     winners: getWiners(),
     previousBets: previousBets,
     currentChip: state.currentChip + getWiners().chips

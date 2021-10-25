@@ -9,6 +9,7 @@ import './style.scss';
 import WheelStand from './WheelStand';
 import OutsideNumbers from './OutsideNumbers';
 import InsideBets from './InsideBets';
+import LastNumbers from '../LastNumbers';
 
 
 const TheTable = () => {
@@ -18,12 +19,20 @@ const TheTable = () => {
   const dozen = useSelector(state => state.dozen) || [];
   const raceTrack = useSelector(state => state.raceTrack) || [];
   const enableSounds = useSelector(state => state.enableSounds);
+  const winningNumber = useSelector(state => state.winningNumber) || {};
 
   return (
     <div id="the-table">
       <div id="sound-toggle" onClick={() => dispatch(soundToggle())}>
         <img src={enableSounds ? soundOn : soundOff} alt="Toggle sound" />
       </div>
+
+      <LastNumbers />
+
+      {Object.keys(winningNumber).length > 0 && <h4 className="text-center winner-info mt-1">
+        Winning number: <span style={{backgroundColor: winningNumber.properties.color}}>{winningNumber.numbers}</span>
+      </h4>}
+
       <WheelStand />
       <div className="the-table-inner">
         <div className="outside-numbers">

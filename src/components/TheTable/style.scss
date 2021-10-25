@@ -17,6 +17,21 @@
     pointer-events: none;
   }
 
+  .winner-info {
+    position: absolute;
+    top: 0; right: 0; left: 0;
+
+    span {
+      width: 29px;
+      height: 29px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-left: .5rem;
+    }
+  }
+
   .the-table-inner {
     position: relative;
     max-width: 481px;
