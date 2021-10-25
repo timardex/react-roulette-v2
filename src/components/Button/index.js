@@ -22,8 +22,13 @@ const Button = () => {
   const startGame = () => {
     dispatch(spinBall());
     audioToggle();
-    setTimeLeft(11);
+    setTimeLeft(10);
   };
+
+  const setPreviousBets = () => {
+    dispatch(removeBets());
+    dispatch(previousBet());
+  }
 
   useEffect(() => {
     if(timeLeft === 0) {
@@ -38,7 +43,7 @@ const Button = () => {
 
   return(
     <div className="text-center mb-1">
-      {previousBets.length > 0 && currentChip > 0 && <button onClick={() => dispatch(previousBet())} type="button">Previous bets</button>}
+      {previousBets.length > 0 && currentChip > 0 && <button onClick={() => setPreviousBets()} type="button">Previous bets</button>}
 
       {numbersChecked.length > 0 && <button onClick={() => dispatch(removeBets())} type="button" disabled={timeLeft === 0}>
         {timeLeft === 0 ? 'Bets accepted' : 'Remove bets'}

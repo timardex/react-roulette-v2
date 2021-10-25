@@ -1,3 +1,19 @@
+@import '../../assets/styles/variables';
+
+header {
+  .placebet-info {
+    font-size: 1.1rem;
+    small {
+      display: block;
+      margin: .5rem 0 0;
+    }
+
+    span {
+      color: $color2;
+    }
+  }
+}
+
 #chip-container {
   position: relative;
   text-align: center;

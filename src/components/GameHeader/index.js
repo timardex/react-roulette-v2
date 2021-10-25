@@ -32,9 +32,14 @@ const GameHeader = () => {
   return (
     <header>
       <h1 className="text-center mt-2 mb-1">
-        Roulette Presentation
+        Welcome to Roulette game app
         <small className="d-block">Try your luck!</small>
       </h1>
+
+      <h3 className="text-center placebet-info mb-1">
+        Place your bets please!
+        <small>You can place your bets until <span>No more bets</span> is called!</small>
+      </h3>
 
       <div id="chip-container">
         {chipContainer()}
