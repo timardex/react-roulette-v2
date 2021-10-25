@@ -13,7 +13,7 @@ import {
 import { getNumbersByProperties, spaceReplace } from '../../helpers';
 
 /* Setting up random numbers when game initialized for the first time */
-const lastNumbers = numbersList.sort(() => Math.random() - Math.random()).slice(0, 7);
+const lastNumbers = [...numbersList].sort(() => Math.random() - Math.random()).slice(0, 7);
 
 const setupObject = (property, value, winingOdd) => {
   const numbers = getNumbersByProperties(numbersList, property, value).map(item => item.numbers[0]);

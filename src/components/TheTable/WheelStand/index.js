@@ -9,7 +9,7 @@ const WheelStand = () => {
   const rotateBall = useSelector(state => state.rotateBall) || '';
   const winningNumber = useSelector(state => state.winningNumber) || {};
 
-  const data = numbersList.map(el => el).sort((a, b) => a.properties.onWheel - b.properties.onWheel);
+  const data = [...numbersList].sort((a, b) => a.properties.onWheel - b.properties.onWheel);
   
   return (
     <div id="wheel-stand">
