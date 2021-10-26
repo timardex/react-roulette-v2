@@ -24,7 +24,7 @@ const TheTable = () => {
   return (
     <div id="the-table">
       <div id="sound-toggle" onClick={() => dispatch(soundToggle())}>
-        <img src={enableSounds ? soundOn : soundOff} alt="Toggle sound" />
+        <img src={enableSounds ? soundOn : soundOff} alt="Toggle sound" title={`${enableSounds ? 'Disable' : 'Enable'} sound`}/>
       </div>
 
       <LastNumbers />

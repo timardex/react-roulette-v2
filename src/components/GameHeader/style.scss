@@ -17,10 +17,12 @@ header {
 #chip-container {
   position: relative;
   text-align: center;
-  height: 70px;
-  display: flex;
+  margin: auto;
+  width: 405px;
+  display: grid;
+  grid-template-columns: repeat(10,auto);
+  grid-auto-flow: row;
   justify-content: center;
-  align-items: flex-end;
 
   .current-chip {
     position: relative;

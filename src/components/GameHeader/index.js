@@ -23,10 +23,7 @@ const GameHeader = () => {
         </div>
       });
     }
-    return <h4>
-      Your're out of chips
-      <small style={{display: 'block'}}>Spin the ball or remove bets to continue</small>
-    </h4>
+    return <h4>Your're out of chips</h4>
   }
 
   return (
@@ -36,7 +33,7 @@ const GameHeader = () => {
         <small className="d-block">Try your luck!</small>
       </h1>
 
-      <h3 className="text-center placebet-info mb-1">
+      <h3 className="text-center placebet-info mb-2">
         Place your bets please!
         <small>You can place your bets until <span>No more bets</span> is called!</small>
       </h3>

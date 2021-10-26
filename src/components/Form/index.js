@@ -24,9 +24,13 @@ const Form = (props) => {
     dispatch(deleteBet(bet));
   };
 
+  const title = () => {
+    return value.insideBet ? value.name : value.numbers
+  };
+
   return(
     <div className="form">
-      <label className="form-label" htmlFor={value.id} title={`#${value.name}`}>
+      <label className="form-label" htmlFor={value.id} title={title()}>
         <input
           className="form-input"
           type="checkbox"
