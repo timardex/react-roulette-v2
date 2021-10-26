@@ -13,11 +13,13 @@ const Form = (props) => {
 
   const currentChip = useSelector(state => state.currentChip) || null;
   const winningNumber = useSelector(state => state.winningNumber) || {};
-
+  const spinBtnText = useSelector(state => state.spinBtnText) || '';
+  
   const setSelectedBet = (bet) => {
-    if(currentChip > 0) {
+    if(currentChip > 0 || spinBtnText !== 'No more bets!') {
       dispatch(setBet(bet));
     }
+    return null;
   };
 
   const deleteSelectedBet = (bet) => {

@@ -10,7 +10,7 @@
     position: absolute;
     left: 0; right: 0;
     margin: auto;
-    height: 40px;
+    height: 25px;
     width: 10px;
     background: $tableColor1;
   }
@@ -18,9 +18,9 @@
   ul {
     list-style: none;
     margin-top: .5rem;
-    margin: 1rem auto 0;
-    border: 1px solid $color1a;
-    border-radius: .5rem;
+    margin: .5rem auto 0;
+    border: .5rem solid $color1a;
+    border-radius: 1rem;
   
     li {
       width: 100%;
@@ -52,7 +52,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 3px;
+        margin: 5px;
       }
     }
   }
