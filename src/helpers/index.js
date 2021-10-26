@@ -58,7 +58,7 @@ export const deleteBet = (array, payload) => {
 export const previousBet = (array, prevBets) => {
   const result = array.map((item) => {
     const condition = prevBets.some(el => el.name === item.name);
-    const prev = condition ? prevBets.find(el => el.name === item.name) : 0;
+    const prev = prevBets.find(el => el.name === item.name);
     return condition ? { ...prev } : item;
   });
   return result;

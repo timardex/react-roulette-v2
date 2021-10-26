@@ -26,7 +26,6 @@ const Button = () => {
   };
 
   const setPreviousBets = () => {
-    dispatch(removeBets());
     dispatch(previousBet());
   }
 

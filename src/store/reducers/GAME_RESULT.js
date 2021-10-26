@@ -3,6 +3,7 @@ import { keepWinningBets } from '../../helpers';
 const GAME_RESULT = (state) => {
   const generatedNumber = Math.floor((Math.random() * 36) + 0);
   const winningNumber = state.numbersList.find(item => item.numbers.includes(generatedNumber));
+
   const previousBets = JSON.parse(window.localStorage.getItem('previousBets'));
 
   const getWiners = () => {

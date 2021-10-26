@@ -24,8 +24,8 @@ const PREVIOUS_BET = (state) => {
       corner2: previousBet(state.corners.corner2, state.previousBets),
     },
     numbersChecked: state.previousBets,
+    currentChip: (state.currentChip - state.previousBets.map((item) => item.chipCount).reduce((a, b) => (a + b), 0)) + state.winners.chips,
     previousBets: [],
-    currentChip: state.currentChip - state.previousBets.map((item) => item.chipCount).reduce((a, b) => (a + b), 0),
   };
 };
 
