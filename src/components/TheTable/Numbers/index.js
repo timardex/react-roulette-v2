@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getNumbersByProperties } from '../../../helpers';
 
-import Form from '../../Form';
+import Form from '../Form';
 
 import './style.scss';
 

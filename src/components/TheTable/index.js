@@ -9,7 +9,7 @@ import './style.scss';
 import WheelStand from './WheelStand';
 import OutsideNumbers from './OutsideNumbers';
 import InsideBets from './InsideBets';
-import LastNumbers from '../LastNumbers';
+import LastNumbers from './LastNumbers';
 
 
 const TheTable = () => {

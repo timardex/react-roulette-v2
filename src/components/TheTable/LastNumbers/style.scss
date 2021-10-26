@@ -1,4 +1,4 @@
-@import '../../assets/styles/variables';
+@import '../../../assets/styles/variables';
 
 #last-numbers {
   width: 115px;
@@ -20,6 +20,7 @@
     margin: .5rem auto 0;
     border: .5rem solid $color1a;
     border-radius: 1rem;
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.5);
   
     li {
       width: 100%;

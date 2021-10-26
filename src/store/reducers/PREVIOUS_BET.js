@@ -1,6 +1,9 @@
 import { previousBet } from '../../helpers';
 
 const PREVIOUS_BET = (state) => {
+  const currentChip = (state.currentChip - state.previousBets.map((item) => item.chipCount).reduce((a, b) => (a + b), 0))
+  + state.winners.numbers.map((item) => item.chipCount).reduce((a, b) => (a + b), 0);
+  
   return {
     ...state,
     numbersList: previousBet(state.numbersList, state.previousBets),
@@ -24,7 +27,7 @@ const PREVIOUS_BET = (state) => {
       corner2: previousBet(state.corners.corner2, state.previousBets),
     },
     numbersChecked: state.previousBets,
-    currentChip: (state.currentChip - state.previousBets.map((item) => item.chipCount).reduce((a, b) => (a + b), 0)) + state.winners.chips,
+    currentChip,
     previousBets: [],
   };
 };

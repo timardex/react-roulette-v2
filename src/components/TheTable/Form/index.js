@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setBet, deleteBet } from "../../store/actions";
+import { setBet, deleteBet } from "../../../store/actions";
 
-import chip from '../../assets/images/chip.png';
+import chip from '../../../assets/images/chip.png';
 
 import './style.scss';
 
@@ -28,7 +28,7 @@ const Form = (props) => {
   };
 
   const title = () => {
-    return value.insideBet ? value.name : value.numbers;
+    return value.insideBet ? `#${value.name}` : value.numbers;
   };
 
   return(
