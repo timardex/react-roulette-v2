@@ -1,30 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import chipImg from '../../assets/images/chip2.png';
+import ChipContainer from '../ChipContainer';
 import './style.scss';
 
 const GameHeader = () => {
-  const currentChip = useSelector(state => state.currentChip) || null;
-  const chips = Array.from({length: currentChip}, (_, i) => i + 1);
+  const spinBtnText = useSelector(state => state.spinBtnText) || '';
+  const { numbers } = useSelector(state => state.winners) || [];
   
-  const chipsArray = chips.map((item, index) => {
-    return index % 20 === 0 ? chips.slice(index, index + 20) : null
-  }).filter(el => el);
-
-  const chipContainer = () => {
-    if(currentChip > 0) {
-      return chipsArray.map((chip, index) => {
-        return <div className="current-chip" key={index}>
-          <span style={{top: -chip.length * 2}}>{chip.length}</span>
-          {chip.map((item, itemIndex) => {
-            return <img key={item} className={`chip ${item}`} src={chipImg} alt="Chip" style={{bottom: itemIndex * 2}}/>
+  const renderInfo = () => {
+    if(typeof numbers !== 'undefined') {
+      return(
+        <ul>
+          {numbers.map((item) => {
+            return <li key={item.name}>
+              <span>Name: {item.name}</span>
+              <span>Chip won: {item.chipCount * item.winingOdd}</span>
+            </li>
           })}
-        </div>
-      });
+        </ul>
+      )
     }
-    return <h4>Your're out of chips</h4>
-  }
+    return null;
+  };
 
   return (
     <header>
@@ -33,14 +31,13 @@ const GameHeader = () => {
         <small className="d-block">Try your luck!</small>
       </h1>
 
-      <h3 className="text-center placebet-info mb-2">
-        Place your bets please!
-        <small>You can place your bets until <span>No more bets</span> is called!</small>
+      <h3 className="text-center mb-2 bet-info">
+        {spinBtnText !== 'No more bets!' ? 'Place your bets please!' : spinBtnText}
       </h3>
 
-      <div id="chip-container">
-        {chipContainer()}
-      </div>
+      {renderInfo()}
+
+      <ChipContainer />
     </header>
   );
 };

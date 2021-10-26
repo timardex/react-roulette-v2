@@ -1,6 +1,10 @@
 import { removeNumbers } from '../../helpers';
 
 const REMOVE_BETS = (state) => {
+  const localPreviousBets = JSON.parse(window.localStorage.getItem('previousBets'));
+  const numbersChecked = state.numbersChecked.sort((a, b) => a.chipCount > b.chipCount ? -1 : 1)
+  .filter((v,i,a)=> a.findIndex(t => (t.name === v.name)) === i);
+
   return {
     ...state,
     numbersList: removeNumbers(state.numbersList),
@@ -23,8 +27,9 @@ const REMOVE_BETS = (state) => {
       corner1: removeNumbers(state.corners.corner1),
       corner2: removeNumbers(state.corners.corner2),
     },
-    currentChip: state.currentChip + state.numbersChecked.length,
+    currentChip: state.currentChip + numbersChecked.length + localPreviousBets.length,
     numbersChecked: [],
+    previousBets: [],
   };
 };
 
