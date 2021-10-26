@@ -20,6 +20,7 @@ const TheTable = () => {
   const raceTrack = useSelector(state => state.raceTrack) || [];
   const enableSounds = useSelector(state => state.enableSounds);
   const winningNumber = useSelector(state => state.winningNumber) || {};
+  const spinBtnText = useSelector(state => state.spinBtnText) || '';
 
   return (
     <div id="the-table">
@@ -35,6 +36,7 @@ const TheTable = () => {
 
       <WheelStand />
       <div className="the-table-inner">
+        {spinBtnText === 'No more bets!' && <p className="no-more-bets-overlay">{spinBtnText}</p>}
         <div className="outside-numbers">
           {one2one.map((item) => <OutsideNumbers key={item.id} data={item}/>)}
         </div>

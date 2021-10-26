@@ -16,18 +16,19 @@ const Form = (props) => {
   const spinBtnText = useSelector(state => state.spinBtnText) || '';
   
   const setSelectedBet = (bet) => {
-    if(currentChip > 0 || spinBtnText !== 'No more bets!') {
+    if(currentChip > 0 && spinBtnText !== 'No more bets!') {
       dispatch(setBet(bet));
     }
-    return null;
   };
 
   const deleteSelectedBet = (bet) => {
-    dispatch(deleteBet(bet));
+    if(spinBtnText !== 'No more bets!') {
+      dispatch(deleteBet(bet));
+    }
   };
 
   const title = () => {
-    return value.insideBet ? value.name : value.numbers
+    return value.insideBet ? value.name : value.numbers;
   };
 
   return(

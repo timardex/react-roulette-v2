@@ -17,7 +17,6 @@
 
   ul {
     list-style: none;
-    margin-top: .5rem;
     margin: .5rem auto 0;
     border: .5rem solid $color1a;
     border-radius: 1rem;
@@ -53,6 +52,7 @@
         justify-content: center;
         align-items: center;
         margin: 5px;
+        font-size: .8rem;
       }
     }
   }
