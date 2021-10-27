@@ -6,23 +6,6 @@ import './style.scss';
 
 const GameHeader = () => {
   const spinBtnText = useSelector(state => state.spinBtnText) || '';
-  const { numbers } = useSelector(state => state.winners) || [];
-  
-  const renderInfo = () => {
-    if(typeof numbers !== 'undefined') {
-      return(
-        <ul>
-          {numbers.map((item) => {
-            return <li key={item.name}>
-              <span>Name: {item.name}</span>
-              <span>Chip won: {item.chipCount * item.winingOdd}</span>
-            </li>
-          })}
-        </ul>
-      )
-    }
-    return null;
-  };
 
   return (
     <header>
@@ -34,8 +17,6 @@ const GameHeader = () => {
       <h3 className="text-center mb-2 bet-info">
         {spinBtnText !== 'No more bets!' ? 'Place your bets please!' : spinBtnText}
       </h3>
-
-      {renderInfo()}
 
       <ChipContainer />
     </header>

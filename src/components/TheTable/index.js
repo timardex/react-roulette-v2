@@ -10,7 +10,7 @@ import WheelStand from './WheelStand';
 import OutsideNumbers from './OutsideNumbers';
 import InsideBets from './InsideBets';
 import LastNumbers from './LastNumbers';
-
+import WinningInfo from './WinningInfo';
 
 const TheTable = () => {
   const dispatch = useDispatch();
@@ -51,6 +51,8 @@ const TheTable = () => {
           {raceTrack.map((item) => <OutsideNumbers key={item.id} data={item}/>)}
         </div>
       </div>
+
+      <WinningInfo />
     </div>
   );
 };
