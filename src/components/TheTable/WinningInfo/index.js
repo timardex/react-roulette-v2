@@ -10,7 +10,7 @@ const WinningInfo = () => {
     <div id="winning-info">
       {typeof numbers !== 'undefined' && numbers.length > 0 && <p>Winning with:</p>}
       <ul>
-        {typeof numbers !== 'undefined' ? numbers.map((item, index) => {
+        {typeof numbers !== 'undefined' ? numbers.map((item) => {
           return <li key={item.name}>
             <span>{item.name}</span>
             <div>
