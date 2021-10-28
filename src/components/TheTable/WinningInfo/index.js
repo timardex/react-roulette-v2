@@ -6,11 +6,12 @@ import './style.scss';
 
 const WinningInfo = () => {
   const { numbers } = useSelector(state => state.winners) || [];
+  const checkData = typeof numbers !== 'undefined';
   return(
     <div id="winning-info">
-      {typeof numbers !== 'undefined' && numbers.length > 0 && <p>Winning with:</p>}
+      {checkData && numbers.length > 0 && <p>Winning with:</p>}
       <ul>
-        {typeof numbers !== 'undefined' ? numbers.map((item) => {
+        {checkData ? numbers.map((item) => {
           return <li key={item.name}>
             <span>{item.name}</span>
             <div>
