@@ -2,4 +2,8 @@
 
 .form {
   position: relative;
+
+  .number-name {
+    user-select: none;
+  }
 }

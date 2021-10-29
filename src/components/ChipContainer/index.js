@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import chipImg from '../../assets/images/chip2.png';
 
+import './style.scss';
+
 const ChipContainer = () => {
   const currentChip = useSelector(state => state.currentChip) || null;
   const chips = Array.from({length: currentChip}, (_, i) => i + 1);
