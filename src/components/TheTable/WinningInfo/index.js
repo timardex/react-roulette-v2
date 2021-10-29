@@ -7,6 +7,7 @@ import './style.scss';
 const WinningInfo = () => {
   const { numbers } = useSelector(state => state.winners) || [];
   const checkData = typeof numbers !== 'undefined';
+  console.log(checkData)
   return(
     <div id="winning-info">
       {checkData && numbers.length > 0 && <p>Winning with:</p>}
