@@ -65,6 +65,7 @@ const GAME_INITIALIZER = (state) => {
     previousBets: [],
     currentChip: 20,
     enableSounds: false,
+    gameInfo: {},
   };
 };
 

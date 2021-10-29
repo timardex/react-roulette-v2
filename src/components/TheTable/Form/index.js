@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setBet, deleteBet } from "../../../store/actions";
+import { setBet, deleteBet, showGameInfo } from "../../../store/actions";
 
 import chip from '../../../assets/images/chip.png';
 
@@ -32,7 +32,7 @@ const Form = (props) => {
   };
 
   return(
-    <div className="form">
+    <div className="form" onMouseOver={() => dispatch(showGameInfo(value))} onMouseOut={() => dispatch(showGameInfo({}))}>
       <label className="form-label" htmlFor={value.id} title={title()}>
         <input
           className="form-input"

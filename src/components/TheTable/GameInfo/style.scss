@@ -7,4 +7,9 @@
   pointer-events: none;
   width: 50%;
   text-align: center;
+  
+  span {
+    text-transform: capitalize;
+    color: $color2;
+  }
 }

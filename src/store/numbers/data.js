@@ -127,7 +127,7 @@ const setupCorner = numbersList.map((item) => {
   return item.properties.corner.map((el) => {
     const property = 'corner';
     const value = el.name;
-    const winingOdd = 17;
+    const winingOdd = 8;
 
     return { property, value, winingOdd };
   });

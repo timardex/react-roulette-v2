@@ -7,6 +7,7 @@ import GAME_RESULT from './GAME_RESULT';
 import SOUND_TOGGLE from './SOUND_TOGGLE';
 import DELETE_BET from './DELETE_BET';
 import PREVIOUS_BET from './PREVIOUS_BET';
+import SHOW_GAME_INFO from './SHOW_GAME_INFO';
 
 const reducers = (state = {}, action) => {
   switch(action.type) {
@@ -28,6 +29,8 @@ const reducers = (state = {}, action) => {
       return DELETE_BET(state, action.payload);
     case 'PREVIOUS_BET':
       return PREVIOUS_BET(state);
+    case 'SHOW_GAME_INFO':
+      return SHOW_GAME_INFO(state, action.payload);
     default:
       return state;
   };
