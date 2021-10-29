@@ -20,7 +20,7 @@ const LastNumbers = () => {
   return(
     <div id="last-numbers">
       <div>
-        <h4 className="text-center mt-1">Last 7 numbers:</h4>
+        <h4 className="text-center">Last 7 numbers:</h4>
         <ul>
           {lastNumbers.slice(0, 7).map((item, index) => {
             return <li key={index} style={{justifyContent: setNumberPlacement(item.properties.color)}}>

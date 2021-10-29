@@ -35,8 +35,10 @@ const TheTable = () => {
       </h4>}
 
       <WheelStand />
+
       <div className="the-table-inner">
         {spinBtnText === 'No more bets!' && <p className="no-more-bets-overlay">{spinBtnText}</p>}
+        
         <div className="outside-numbers">
           {one2one.map((item) => <OutsideNumbers key={item.id} data={item}/>)}
         </div>

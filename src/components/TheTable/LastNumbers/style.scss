@@ -11,9 +11,15 @@
     position: absolute;
     left: 0; right: 0;
     margin: auto;
-    height: 25px;
+    height: 40px;
     width: 10px;
     background: $tableColor1;
+  }
+
+  h4 {
+    position: absolute;
+    top: -22px; left: 0; right: 0;
+    margin: auto;
   }
 
   ul {
