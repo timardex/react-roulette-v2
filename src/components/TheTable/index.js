@@ -11,6 +11,7 @@ import OutsideNumbers from './OutsideNumbers';
 import InsideBets from './InsideBets';
 import LastNumbers from './LastNumbers';
 import WinningInfo from './WinningInfo';
+import GameInfo from  './GameInfo';
 
 const TheTable = () => {
   const dispatch = useDispatch();
@@ -30,9 +31,11 @@ const TheTable = () => {
 
       <LastNumbers />
 
-      {Object.keys(winningNumber).length > 0 && <h4 className="text-center winner-info mt-1">
+      {Object.keys(winningNumber).length > 0 && <h4 className="text-center winner-number-info mt-1">
         Winning number: <span style={{backgroundColor: winningNumber.properties.color}}>{winningNumber.numbers}</span>
       </h4>}
+
+      <GameInfo />
 
       <WheelStand />
 

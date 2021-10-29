@@ -29,6 +29,7 @@ button {
   &:disabled {
     pointer-events: none;
     background-color: $color5;
+    opacity: .3;
   }
 
   &:hover {

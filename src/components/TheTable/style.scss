@@ -13,19 +13,21 @@
   pointer-events: all;
   box-shadow: $boxShadow;
 
-  .winner-info {
+  .winner-number-info {
     position: absolute;
     top: 0; right: 0; left: 0;
     pointer-events: none;
+    font-size: .9rem;
 
     span {
-      width: 29px;
-      height: 29px;
+      width: 23px;
+      height: 23px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
       margin-left: .5rem;
+      font-size: .8rem;
     }
   }
 
