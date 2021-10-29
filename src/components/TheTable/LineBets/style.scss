@@ -12,28 +12,17 @@
   }
   
   .form {
-    margin: 1px;
-    pointer-events: all;
 
     label {
       width: 13px;
       height: 13px;
       display: block;
       border-radius: 50%;
-      cursor: pointer;
       border: 1px solid $color1a;
-      background: transparent;
     
       &:hover {
-        background: $color2a;
         border: 1px solid $color1;
       }
-    }
-
-    input {
-      position: absolute !important;
-      opacity: 0;
-      visibility: hidden;
     }
   }
 }

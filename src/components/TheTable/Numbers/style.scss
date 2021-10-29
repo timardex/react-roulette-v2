@@ -5,29 +5,11 @@
   display: flex;
 
   .form {
-    margin: 1px;
     border: 1px solid $color1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     label {
-      cursor: pointer;
       width: 34px;
       height: 34px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:hover, &.active {
-        background: $color2a;
-      }
-    }
-
-    input {
-      position: absolute !important;
-      opacity: 0;
-      visibility: hidden;
     }
 
     .number-name {

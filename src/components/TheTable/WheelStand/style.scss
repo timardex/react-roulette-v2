@@ -112,6 +112,12 @@
         backface-visibility: hidden;
         pointer-events: none;
 
+        &.winner-number {
+          &.number:before {
+            display: block !important;
+          }
+        }
+
         &:before {
           content: '';
           position: absolute;

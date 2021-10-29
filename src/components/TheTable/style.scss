@@ -13,10 +13,6 @@
   pointer-events: all;
   box-shadow: $boxShadow;
 
-  &.disable {
-    pointer-events: none;
-  }
-
   .winner-info {
     position: absolute;
     top: 0; right: 0; left: 0;
@@ -67,101 +63,6 @@
     margin: 2px 0;
     display: flex;
     justify-content: space-evenly;
-  }
-
-  .chip,
-  .dolly {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
-
-  .chip {
-    width: 16px;
-    height: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    img {
-      position: absolute;
-      z-index: 0;
-    }
-    span {
-      position: relative;
-      z-index: 1;
-      font-size: .7rem;
-      font-weight: 700;
-      color: #fff !important;
-    }
-  }
-
-  .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover {
-      .remove-bet {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-    .remove-bet {
-      position: absolute;
-      top: -25px;
-      margin: auto;
-      height: 34px;
-      width: 34px;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-
-      small {
-        background: #000;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-
-  .dolly {
-    top: -15px;
-    width: 10px !important;
-    height: 20px !important;
-    background: $color2;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    z-index: 2;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      width: 10px;
-      height: 10px;
-      background: $color2;
-      border-radius: 50%;
-    }
-  }
-
-  .winner-number {
-    &.number:before, .dolly {
-      display: block !important;
-    }
   }
 
   #sound-toggle {
