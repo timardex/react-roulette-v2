@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-roulette-v2/static/css/main.46a283ad.chunk.css",
+    "main.js": "/react-roulette-v2/static/js/main.27be407a.chunk.js",
+    "main.js.map": "/react-roulette-v2/static/js/main.27be407a.chunk.js.map",
+    "runtime-main.js": "/react-roulette-v2/static/js/runtime-main.381c4fb6.js",
+    "runtime-main.js.map": "/react-roulette-v2/static/js/runtime-main.381c4fb6.js.map",
+    "static/js/2.658c42ad.chunk.js": "/react-roulette-v2/static/js/2.658c42ad.chunk.js",
+    "static/js/2.658c42ad.chunk.js.map": "/react-roulette-v2/static/js/2.658c42ad.chunk.js.map",
+    "static/js/3.481694d1.chunk.js": "/react-roulette-v2/static/js/3.481694d1.chunk.js",
+    "static/js/3.481694d1.chunk.js.map": "/react-roulette-v2/static/js/3.481694d1.chunk.js.map",
+    "index.html": "/react-roulette-v2/index.html",
+    "static/css/main.46a283ad.chunk.css.map": "/react-roulette-v2/static/css/main.46a283ad.chunk.css.map",
+    "static/js/2.658c42ad.chunk.js.LICENSE.txt": "/react-roulette-v2/static/js/2.658c42ad.chunk.js.LICENSE.txt",
+    "static/media/ball-effect.198b7608.mp3": "/react-roulette-v2/static/media/ball-effect.198b7608.mp3",
+    "static/media/chip-effect.404a3893.mp3": "/react-roulette-v2/static/media/chip-effect.404a3893.mp3",
+    "static/media/chip.03a4503d.png": "/react-roulette-v2/static/media/chip.03a4503d.png",
+    "static/media/chip2.8e219c0b.png": "/react-roulette-v2/static/media/chip2.8e219c0b.png",
+    "static/media/sound-off.9f2ea3df.png": "/react-roulette-v2/static/media/sound-off.9f2ea3df.png",
+    "static/media/sound-on.073c7f9c.png": "/react-roulette-v2/static/media/sound-on.073c7f9c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.381c4fb6.js",
+    "static/js/2.658c42ad.chunk.js",
+    "static/css/main.46a283ad.chunk.css",
+    "static/js/main.27be407a.chunk.js"
+  ]
+}
